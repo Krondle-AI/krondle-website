@@ -58,7 +58,7 @@ Pequenas e médias empresas (barbearias, esteticistas, clínicas) perdem:
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/krondle.git
+git clone https://github.com/Krondle-AI/krondle-frontend.git
 
 # 2. Entre na pasta do projeto
 cd krondle
@@ -156,45 +156,33 @@ krondle/
 
 | Nome | Papel | Email |
 |------|-------|-------|
-| **Afonso Cartaxo** | Data & AI Specialist | nº110955 |
-| **Francisco Ribeiro** | Business & Marketing Manager | nº111647 |
-| **João Freire** | Frontend Developer & UX Designer | nº111216 |
-| **Marta Pinto** | - | nº110745 |
-| **Miguel Ribeiro** | Backend Developer & System Architect | nº110792 |
-| **Pedro Primo** | - | nº110808 |
+| **Afonso Cartaxo** | Head of Data and Backend Developer | ahcos@iscte-iul.pt |
+| **Francisco Ribeiro** | Finance Director and Frontend Developer | fproo@iscte-iul.pt |
+| **João Freire** | Communications Director and UI/UX Designer | jcfeo1@iscte-iul.pt |
+| **Marta Pinto** | - | mcpoa3@iscte-iul.pt |
+| **Miguel Ribeiro** | Backend Developer & System Architect | mproo@iscte-iul.pt |
+| **Pedro Primo** | Director of UI/UX and Frontend Developer  | pgmpo@iscte-iul.pt |
 
 ---
 
 ## 📄 Licença
 
-Este projeto é académico e foi desenvolvido no âmbito da UC de **Empreendedorismo e Inovação I** no ISCTE.
-
----
-
-## 🤝 Contribuir
-
-Este é um projeto académico, mas sugestões são bem-vindas!
-
-1. Faça fork do projeto
-2. Crie uma branch (`git checkout -b feature/nova-funcionalidade`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Push para a branch (`git push origin feature/nova-funcionalidade`)
-5. Abra um Pull Request
+Este projeto é académico e foi desenvolvido no âmbito da UC de **Conceção e Viabilidade de Projeto de Base Tecnológica** no ISCTE.
 
 ---
 
 ## 📞 Contacto
 
 Para questões sobre o projeto:
-- Email: [adicionar email do grupo]
-- Repositório: [adicionar link do GitHub]
+- Email: krondleai@gmail.com
 
 ---
 
 ## 🙏 Agradecimentos
 
 - ISCTE - Instituto Universitário de Lisboa
-- Professor(a) de Empreendedorismo e Inovação I
+- Professor Pedro Sebastião
+- Professor André Xavier
 - Todos os que testaram e deram feedback
 
 ---
