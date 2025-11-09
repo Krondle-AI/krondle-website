@@ -1,4 +1,5 @@
-import { Card, CardContent } from "@krondle/common";
+// apps/marketing/src/components/Features.tsx
+import { Card, CardContent } from "@krondle/common/components/ui/card";
 import { Bot, Clock, TrendingUp, Zap } from "lucide-react";
 
 const features = [
@@ -26,30 +27,33 @@ const features = [
 
 export function Features() {
   return (
-    <section className="px-6 py-24 sm:py-32 lg:px-8">
+    <section id="features" className="bg-slate-50 dark:bg-slate-900 px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-5xl mb-4">
             Tudo o que precisa para escalar
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <p className="text-xl text-slate-600 dark:text-slate-300">
             Ferramentas profissionais ao alcance de pequenas empresas
           </p>
         </div>
 
-        {/* Features Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => (
-            <Card key={feature.title} className="border-slate-200">
-              <CardContent className="p-6">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-cyan-100">
-                  <feature.icon className="h-6 w-6 text-cyan-600" />
+            <Card 
+              key={feature.title} 
+              className="border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-xl transition-shadow"
+            >
+              <CardContent className="p-8">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25">
+                  <feature.icon className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-slate-900">
+                <h3 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-sm text-slate-600">{feature.description}</p>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {feature.description}
+                </p>
               </CardContent>
             </Card>
           ))}
