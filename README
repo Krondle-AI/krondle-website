@@ -1,104 +1,177 @@
-# 🧠 Krondle
+# 🧠 Krondle Frontend — Guia de Trabalho da Equipa
 
-Krondle é uma solução inteligente para automação de marcações via WhatsApp com recurso a IA. O projeto está estruturado em **monorepo**, com separação clara entre frontend de marketing, dashboard de negócio e componentes reutilizáveis.
+Este guia documenta como a equipa de desenvolvimento frontend da **Krondle-AI** colabora no repositório [`krondle-frontend`](https://github.com/Krondle-AI/krondle-frontend).  
+Inclui o fluxo de trabalho no VS Code, GitHub e estrutura do monorepo.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Estrutura do Repositório
 
 ```bash
-Krondle/
+krondle-frontend/
 ├── apps/
-│   ├── marketing/       # Website público (Landing Page, Preços, Sobre, etc.)
-│   └── dashboard/       # Web app (em desenvolvimento) para gestão de utilizadores
+│   ├── marketing/      # Website público (Landing Page, Preços, etc.)
+│   └── dashboard/      # App de gestão e calendário (por iniciar)
 ├── packages/
-│   └── common/          # Componentes UI partilhados entre apps (Button, Card, etc.)
-└── pnpm-workspace.yaml  # Configuração de workspaces
+│   └── common/         # Componentes e utilitários React partilhados
+├── pnpm-workspace.yaml # Configuração de workspaces
+└── README.md
 ```
 
 ---
 
-## 🚀 Tecnologias Usadas
+## 🚀 Workflow Padrão (Resumo)
 
-- [React 18+](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [pnpm](https://pnpm.io/) como gestor de pacotes e workspaces
-- [Lucide Icons](https://lucide.dev/)
+| Etapa | Comando |
+|-------|---------|
+| Atualizar a `main` | `git checkout main && git pull` |
+| Criar nova branch | `git checkout -b feat/nome-da-feature` |
+| Fazer commit | `git add . && git commit -m "feat: descrição"` |
+| Subir branch | `git push -u origin feat/nome-da-feature` |
+| Criar Pull Request | No GitHub: "Compare & pull request" |
+| Ligar à issue | `Closes #123` na descrição do PR |
+| Revisão & Merge | PR aprovado por 1+ devs |
+| Apagar branch | GitHub: botão “Delete branch” |
 
 ---
 
-## 📦 Instalação
+## 🧱 Organização das Apps
 
-1. **Clonar o repositório:**
+- `apps/marketing`:  
+  Landing Page pública com seções como Hero, Features, Pricing e Sobre.
 
-```bash
-git clone https://github.com/<teu-username>/krondle.git
-cd krondle
+- `apps/dashboard`:  
+  Painel interno de gestão (agendamentos, clientes, perfis).  
+  Ainda em fase de planeamento.
+
+- `packages/common`:  
+  Design System da Krondle — `Button`, `Card`, `Input`, etc.  
+  **Evita duplicar componentes!** Usa sempre:
+
+```ts
+import { Button } from "@krondle/common";
 ```
 
-2. **Instalar dependências com pnpm:**
+---
+
+## 📦 Setup Rápido
 
 ```bash
+# Instalar dependências
 pnpm install
+
+# Iniciar a app de marketing
+pnpm --filter marketing dev
 ```
 
-3. **Executar a app de marketing:**
+---
 
+## 🛠 Boas Práticas
+
+### ✅ Commits
+
+Segue o padrão semântico:
+
+```bash
+feat: adiciona formulário de contacto
+fix: corrige erro no layout de pricing
+refactor: extrai lógica do componente Hero
+```
+
+### ✅ Branches
+
+```bash
+feat/nome-da-feature
+fix/ajuste-navbar
+refactor/estrutura-css
+```
+
+---
+
+## 🧪 Testar antes de Push
+
+1. Corre localmente:
 ```bash
 pnpm --filter marketing dev
 ```
 
-A app estará disponível em [`http://localhost:3000`](http://localhost:3000)
+2. Verifica erros no terminal ou browser (`http://localhost:3000`).
 
----
-
-## 🛠 Componentes Reutilizáveis
-
-Todos os componentes de UI estão disponíveis no pacote:
-
-```ts
-import { Button, Card } from "@krondle/common";
+3. Usa Prettier para formatar:
+```bash
+pnpm format
 ```
 
-Estão definidos em `packages/common/src/components/ui` e exportados via `index.ts`.
+---
+
+## 👥 Revisão de Código
+
+- Abre sempre Pull Request (PR) a partir da tua branch para `main`.
+- Nunca faças push direto na `main`.
+- Cada PR deve ter:
+  - Título claro
+  - Descrição com `Closes #número-da-issue`
+  - Screenshots se aplicável
+  - Marcar 1+ colega como **revisor**
+- Após merge, apaga a branch.
 
 ---
 
-## 🧪 Scripts úteis
+## 🔖 Labels no GitHub
+
+| Label | Uso |
+|-------|-----|
+| `frontend` | Interface, UI, lógica React |
+| `component` | Criação ou ajuste de componentes |
+| `bug` | Corrigir erros visuais ou funcionais |
+| `urgent` | Deve ser resolvido com prioridade |
+| `refactor` | Limpeza e reestruturação de código |
+| `infra` | Configuração, vite, Tailwind, etc |
+
+---
+
+## 🧑‍💻 Extensões recomendadas no VS Code
+
+- **Tailwind CSS IntelliSense**
+- **ESLint**
+- **Prettier**
+- **GitLens**
+- **Error Lens**
+
+---
+
+## 📦 Scripts úteis
 
 ```bash
-pnpm dev              # Corre o projeto em modo dev (usando filtros)
+pnpm dev              # Corre o frontend (filtrado por app)
+pnpm lint             # Verifica padrões ESLint
+pnpm format           # Aplica Prettier
 pnpm build            # Compila para produção
-pnpm lint             # Lint ao código
-pnpm format           # Formata com Prettier
 ```
 
 ---
 
-## 👥 Equipa
+## 🧠 Cultura de Equipa
 
-- Pedro Primo
-- João Freire
-- Miguel Ige
-- Afonso Cartaxo
-- Francisco Ribeiro
-- Marta Pinto
-- [Grupo 4 - ISCTE IGE]
+- Faz **pushs frequentes** para evitar conflitos.
+- Confirma que estás na branch correta antes de trabalhar.
+- Atualiza o repositório sempre com `git pull origin main`.
+- Evita duplicar componentes. Se algo for útil para ambos (dashboard + marketing), move para `common`.
 
 ---
 
-## 📌 Roadmap
+## ✅ Check Final Antes de Abrir PR
 
-- [x] Landing Page com Hero, Features e Footer
-- [ ] Integração com WhatsApp API
-- [ ] Sistema de autenticação
-- [ ] Dashboard funcional com IA
-- [ ] Deploy em produção
+- [ ] Código testado localmente?
+- [ ] Lint/format sem erros?
+- [ ] Imports de componentes de `@krondle/common` estão corretos?
+- [ ] Pull Request bem nomeado, com descrição clara?
+- [ ] Branch não tem commits irrelevantes?
 
 ---
 
-## 📄 Licença
+📫 Qualquer dúvida → cria issue ou fala com os responsáveis de frontend no Discord/Grupo WhatsApp.
 
-Este projeto está licenciado sob os termos do MIT.
+---
+
+🔐 *Krondle-AI é um projeto académico ISCTE 2025 com visão de produto real. Mantemos código limpo e colaborativo desde o primeiro commit.*
