@@ -1,0 +1,104 @@
+# 🧠 Krondle
+
+Krondle é uma solução inteligente para automação de marcações via WhatsApp com recurso a IA. O projeto está estruturado em **monorepo**, com separação clara entre frontend de marketing, dashboard de negócio e componentes reutilizáveis.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```bash
+Krondle/
+├── apps/
+│   ├── marketing/       # Website público (Landing Page, Preços, Sobre, etc.)
+│   └── dashboard/       # Web app (em desenvolvimento) para gestão de utilizadores
+├── packages/
+│   └── common/          # Componentes UI partilhados entre apps (Button, Card, etc.)
+└── pnpm-workspace.yaml  # Configuração de workspaces
+```
+
+---
+
+## 🚀 Tecnologias Usadas
+
+- [React 18+](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [pnpm](https://pnpm.io/) como gestor de pacotes e workspaces
+- [Lucide Icons](https://lucide.dev/)
+
+---
+
+## 📦 Instalação
+
+1. **Clonar o repositório:**
+
+```bash
+git clone https://github.com/<teu-username>/krondle.git
+cd krondle
+```
+
+2. **Instalar dependências com pnpm:**
+
+```bash
+pnpm install
+```
+
+3. **Executar a app de marketing:**
+
+```bash
+pnpm --filter marketing dev
+```
+
+A app estará disponível em [`http://localhost:3000`](http://localhost:3000)
+
+---
+
+## 🛠 Componentes Reutilizáveis
+
+Todos os componentes de UI estão disponíveis no pacote:
+
+```ts
+import { Button, Card } from "@krondle/common";
+```
+
+Estão definidos em `packages/common/src/components/ui` e exportados via `index.ts`.
+
+---
+
+## 🧪 Scripts úteis
+
+```bash
+pnpm dev              # Corre o projeto em modo dev (usando filtros)
+pnpm build            # Compila para produção
+pnpm lint             # Lint ao código
+pnpm format           # Formata com Prettier
+```
+
+---
+
+## 👥 Equipa
+
+- Pedro Primo
+- João Freire
+- Miguel Ige
+- Afonso Cartaxo
+- Francisco Ribeiro
+- Marta Pinto
+- [Grupo 4 - ISCTE IGE]
+
+---
+
+## 📌 Roadmap
+
+- [x] Landing Page com Hero, Features e Footer
+- [ ] Integração com WhatsApp API
+- [ ] Sistema de autenticação
+- [ ] Dashboard funcional com IA
+- [ ] Deploy em produção
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob os termos do MIT.
