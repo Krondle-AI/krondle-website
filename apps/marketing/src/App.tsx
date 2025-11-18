@@ -1,29 +1,32 @@
 // apps/marketing/src/App.tsx
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LandingPage } from "./pages/LandingPage";
+import { AgendarDemoPage } from "./pages/AgendarDemoPage";
+import FeaturesPage from "./pages/FeaturesPage";
+import PricingPage from "./pages/PricingPage";
+import AboutPage from "./pages/AboutPage";
+import NotFound from "./pages/NotFound";
 import { Header } from "./components/Header";
-import { Hero } from "./components/Hero";
-import { SocialProof } from "./components/SocialProof";
-import { BentoFeatures } from "./components/BentoFeatures";
-import { HowItWorks } from "./components/HowItWorks";
-import { Testimonials } from "./components/Testimonials";
-import { Pricing } from "./components/Pricing";
-import { CTAFinal } from "./components/CTAFinal";
 import { Footer } from "./components/Footer";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <main>
-        <Hero />
-        <SocialProof />
-        <BentoFeatures />
-        <HowItWorks />
-        <Testimonials />
-        <Pricing />
-        <CTAFinal />
+    <BrowserRouter>
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/agendar-demo" element={<AgendarDemoPage />} />
+            <Route path="/features" element={<FeaturesPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
         <Footer />
-      </main>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

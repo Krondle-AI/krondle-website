@@ -2,6 +2,7 @@ import { Button } from "@krondle/common/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "../providers/theme-provider";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const { theme, setTheme } = useTheme();
@@ -11,11 +12,11 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <span className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
               Krondle
             </span>
-          </a>
+          </Link>
         </div>
 
         <div className="flex lg:hidden">
@@ -50,8 +51,13 @@ export function Header() {
             <Moon className="hidden h-5 w-5 dark:block" />
           </Button>
 
-          <Button className="bg-gradient-to-r from-cyan-600 to-blue-600">
-            Agendar Demo
+          <Button 
+            asChild
+            className="bg-gradient-to-r from-cyan-600 to-blue-600"
+          >
+            <Link to="/agendar-demo">
+              Agendar Demo
+            </Link>
           </Button>
         </div>
       </nav>

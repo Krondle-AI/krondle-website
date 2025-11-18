@@ -1,18 +1,24 @@
 import { Hero } from "../components/Hero";
-import { Features } from "../components/Features";
-import { Pricing } from "../components/Pricing";
+import { SocialProof } from "../components/SocialProof";
+import { BentoFeatures } from "../components/BentoFeatures";
 import { HowItWorks } from "../components/HowItWorks";
-import { Footer } from "../components/Footer";
+import { Testimonials } from "../components/Testimonials";
+import { Pricing } from "../components/Pricing";
+import { CTAFinal } from "../components/CTAFinal";
 
 
-export default function LandingPage() {
+export function LandingPage() {
   return (
     <>
       <Hero />
-      <Features />
+      <SocialProof />
+      <BentoFeatures />
       <HowItWorks />
+      <Testimonials />
       <Pricing />
-      <Footer />
+      <CTAFinal />
     </>
   );
 }
+
+export default LandingPage;
