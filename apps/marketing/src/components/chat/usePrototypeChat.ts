@@ -3,37 +3,43 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { Message, ConversationContext, QuickReply } from '@/types/chat'
-import { chatFlow, getNextStep, getBotMessage } from '@/lib/chat-flow'
+import { Message, ConversationContext, QuickReply } from '../../types/chat'
+import { chatFlow, getNextStep, getBotMessage } from '../../lib/chat-flow'
 
 export function usePrototypeChat() {
-  const [messages, setMessages] = useState<Message[]>([])
+  // Mensagem inicial do bot + quick replies logo no estado inicial
+  const [messages, setMessages] = useState<Message[]>(() => [
+    {
+      id: `msg_${Date.now()}`,
+      text: chatFlow.greeting.botMessage,
+      sender: 'bot',
+      timestamp: new Date(),
+      status: 'read',
+    },
+  ])
+
+  const [quickReplies, setQuickReplies] = useState<QuickReply[]>(
+    chatFlow.greeting.quickReplies ?? []
+  )
+
   const [isTyping, setIsTyping] = useState(false)
   const [context, setContext] = useState<ConversationContext>({
     currentStep: 'greeting',
     userData: {},
     conversationId: `conv_${Date.now()}`,
   })
-  const [quickReplies, setQuickReplies] = useState<QuickReply[]>([])
-  
+
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  
-  // Scroll to bottom quando novas mensagens
+
+  // Scroll para o fundo sempre que há novas mensagens ou typing
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }
-  
+
   useEffect(() => {
     scrollToBottom()
   }, [messages, isTyping])
-  
-  // Inicializar com mensagem de boas-vindas
-  useEffect(() => {
-    setTimeout(() => {
-      addBotMessage(chatFlow.greeting.botMessage, chatFlow.greeting.quickReplies)
-    }, 500)
-  }, [])
-  
+
   const addBotMessage = (text: string, replies?: QuickReply[]) => {
     const botMessage: Message = {
       id: `msg_${Date.now()}`,
@@ -42,11 +48,11 @@ export function usePrototypeChat() {
       timestamp: new Date(),
       status: 'read',
     }
-    
+
     setMessages((prev) => [...prev, botMessage])
     setQuickReplies(replies || [])
   }
-  
+
   const addUserMessage = (text: string) => {
     const userMessage: Message = {
       id: `msg_${Date.now()}`,
@@ -55,10 +61,10 @@ export function usePrototypeChat() {
       timestamp: new Date(),
       status: 'sent',
     }
-    
+
     setMessages((prev) => [...prev, userMessage])
-    
-    // Atualizar status para delivered depois de 200ms
+
+    // delivered depois de 200ms
     setTimeout(() => {
       setMessages((prev) =>
         prev.map((msg) =>
@@ -66,8 +72,8 @@ export function usePrototypeChat() {
         )
       )
     }, 200)
-    
-    // Atualizar status para read depois de 400ms
+
+    // read depois de 400ms
     setTimeout(() => {
       setMessages((prev) =>
         prev.map((msg) =>
@@ -76,20 +82,20 @@ export function usePrototypeChat() {
       )
     }, 400)
   }
-  
+
   const handleUserInput = async (input: string, isQuickReply: boolean = false) => {
     // Limpar quick replies
     setQuickReplies([])
-    
+
     // Adicionar mensagem do user
     addUserMessage(input)
-    
+
     // Validar input se necessário
     const currentStepData = chatFlow[context.currentStep]
     if (currentStepData.validate && !isQuickReply) {
       const validation = currentStepData.validate(input)
       if (validation !== true) {
-        // Mostrar erro
+        // Mensagem de erro
         setIsTyping(true)
         setTimeout(() => {
           setIsTyping(false)
@@ -99,17 +105,20 @@ export function usePrototypeChat() {
             setIsTyping(true)
             setTimeout(() => {
               setIsTyping(false)
-              addBotMessage(getBotMessage(context.currentStep, context), currentStepData.quickReplies)
+              addBotMessage(
+                getBotMessage(context.currentStep, context),
+                currentStepData.quickReplies
+              )
             }, 1000)
           }, 500)
         }, 800)
         return
       }
     }
-    
-    // Atualizar contexto com user data
-    const updatedContext = { ...context }
-    
+
+    // Atualizar contexto com dados do utilizador
+    const updatedContext: ConversationContext = { ...context }
+
     switch (context.currentStep) {
       case 'ask_name':
         updatedContext.userData.name = input
@@ -130,50 +139,46 @@ export function usePrototypeChat() {
         updatedContext.userData.preferredTime = input
         break
     }
-    
-    // Obter próximo step
+
+    // Próximo passo no flow
     const nextStepId = getNextStep(context.currentStep, input)
     updatedContext.currentStep = nextStepId
-    
     setContext(updatedContext)
-    
+
     // Simular typing do bot
     setIsTyping(true)
-    
-    // Bot responde depois de 1-2 segundos
     const delay = 1000 + Math.random() * 1000
+
     setTimeout(() => {
       setIsTyping(false)
-      
+
       const nextStep = chatFlow[nextStepId]
       if (nextStep) {
         const botMessageText = getBotMessage(nextStepId, updatedContext)
         addBotMessage(botMessageText, nextStep.quickReplies)
-        
-        // Se chegou ao fim, enviar notificação
+
+        // Se for o fim (confirmação), “envia” notificação
         if (nextStepId === 'confirmation') {
           sendNotificationEmail(updatedContext.userData)
         }
       }
     }, delay)
   }
-  
+
   const sendNotificationEmail = async (userData: any) => {
-    // Por agora, apenas console.log
-    // No futuro, chamar API real
+    // Por agora só log — futuro: chamar API real
     console.log('📧 Enviando email de confirmação:', userData)
-    
-    // Simular envio de email
+
     try {
       // await fetch('/api/send-email', {
       //   method: 'POST',
-      //   body: JSON.stringify(userData)
+      //   body: JSON.stringify(userData),
       // })
     } catch (error) {
       console.error('Erro ao enviar email:', error)
     }
   }
-  
+
   return {
     messages,
     isTyping,

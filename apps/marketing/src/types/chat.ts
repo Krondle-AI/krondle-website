@@ -1,5 +1,7 @@
 // apps/marketing/src/types/chat.ts
 
+import type { ReactNode } from 'react'
+
 export type MessageSender = 'bot' | 'user'
 
 export type MessageStatus = 'sending' | 'sent' | 'delivered' | 'read'
@@ -16,6 +18,7 @@ export interface QuickReply {
   id: string
   text: string
   value: string
+  icon?: ReactNode
 }
 
 export interface ChatStep {

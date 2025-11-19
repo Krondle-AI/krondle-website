@@ -10,7 +10,7 @@ interface ChatMessageProps {
 
 export function ChatMessage({ message }: ChatMessageProps) {
   const isBot = message.sender === 'bot'
-  
+
   return (
     <div
       className={cn(
@@ -23,13 +23,23 @@ export function ChatMessage({ message }: ChatMessageProps) {
           'max-w-[75%] rounded-lg px-4 py-2.5 shadow-sm',
           'whitespace-pre-wrap break-words',
           isBot
-            ? 'bg-white border border-slate-200 text-slate-900 rounded-tl-none'
-            : 'bg-[#DCF8C6] text-slate-900 rounded-tr-none'
+            ? [
+                // BOT – light
+                'bg-white border border-slate-200 text-slate-900 rounded-tl-none',
+                // BOT – dark
+                'dark:bg-slate-800 dark:border-slate-700 dark:text-slate-50',
+              ]
+            : [
+                // USER – light (WhatsApp-like)
+                'bg-[#DCF8C6] text-slate-900 rounded-tr-none',
+                // USER – dark (verde suave)
+                'dark:bg-emerald-500/20 dark:text-emerald-100',
+              ]
         )}
       >
         {/* Message text */}
         <p className="text-sm leading-relaxed">{message.text}</p>
-        
+
         {/* Timestamp and status */}
         <div
           className={cn(
@@ -37,15 +47,15 @@ export function ChatMessage({ message }: ChatMessageProps) {
             isBot ? 'justify-start' : 'justify-end'
           )}
         >
-          <span className="text-[10px] text-slate-500">
+          <span className="text-[10px] text-slate-500 dark:text-slate-400">
             {message.timestamp.toLocaleTimeString('pt-PT', {
               hour: '2-digit',
               minute: '2-digit',
             })}
           </span>
-          
+
           {!isBot && message.status && (
-            <span className="text-slate-500">
+            <span className="text-slate-500 dark:text-slate-400">
               {message.status === 'sent' && <Check className="w-3 h-3" />}
               {(message.status === 'delivered' || message.status === 'read') && (
                 <CheckCheck className="w-3 h-3" />
