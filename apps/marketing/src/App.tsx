@@ -1,7 +1,7 @@
 // apps/marketing/src/App.tsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
-import { AgendarDemoPage } from "./pages/AgendarDemoPage";
+import AgendarReuniaoPage from "./pages/AgendarReuniaoPage";
 import FeaturesPage from "./pages/FeaturesPage";
 import PricingPage from "./pages/PricingPage";
 import AboutPage from "./pages/AboutPage";
@@ -17,7 +17,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/agendar-demo" element={<AgendarDemoPage />} />
+            <Route path="/agendar-demo" element={<AgendarReuniaoPage />} />
             <Route path="/features" element={<FeaturesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/about" element={<AboutPage />} />

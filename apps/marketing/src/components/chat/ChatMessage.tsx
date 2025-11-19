@@ -1,6 +1,6 @@
 // apps/marketing/src/components/chat/ChatMessage.tsx
 
-import { Message } from '@/types/chat'
+import { Message } from '../../types/chat'
 import { cn } from '@krondle/common/lib/utils'
 import { Check, CheckCheck } from 'lucide-react'
 
