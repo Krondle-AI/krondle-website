@@ -37,8 +37,8 @@ export function Header() {
           <Link to="/pricing" className="text-sm font-semibold hover:text-primary">
             Preços
           </Link>
-          <Link to="/about" className="text-sm font-semibold hover:text-primary">
-            Sobre
+          <Link to="/howitworks" className="text-sm font-semibold hover:text-primary">
+            Como Funciona
           </Link>
         </div>
 
@@ -82,11 +82,11 @@ export function Header() {
               Preços
             </Link>
             <Link 
-              to="/about" 
+              to="/howitworks" 
               className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Sobre
+              Como Funciona
             </Link>
             <Link 
               to="/agendar-demo"

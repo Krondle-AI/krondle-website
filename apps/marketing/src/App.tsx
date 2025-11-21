@@ -4,7 +4,7 @@ import { LandingPage } from "./pages/LandingPage";
 import AgendarReuniaoPage from "./pages/AgendarReuniaoPage";
 import FeaturesPage from "./pages/FeaturesPage";
 import PricingPage from "./pages/PricingPage";
-import AboutPage from "./pages/AboutPage";
+import HowItWorksPage from "./pages/HowItWorksPage";
 import NotFound from "./pages/NotFound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -20,7 +20,7 @@ function App() {
             <Route path="/agendar-demo" element={<AgendarReuniaoPage />} />
             <Route path="/features" element={<FeaturesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/about" element={<AboutPage />} />
+            <Route path="/howitworks" element={<HowItWorksPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
