@@ -15,8 +15,8 @@ export const PricingCards = ({ billingCycle }: PricingCardsProps) => {
     {
       name: "Basic",
       description: "Para começar a automatizar",
-      monthlyPrice: 29,
-      yearlyPrice: 23, // 20% desconto
+      monthlyPrice: 39,
+      yearlyPrice: 35, // 10% desconto
       features: [
         "1 trabalhador",
         "WhatsApp integrado",
@@ -34,7 +34,7 @@ export const PricingCards = ({ billingCycle }: PricingCardsProps) => {
       name: "Pro",
       description: "Mais popular para PMEs",
       monthlyPrice: 59,
-      yearlyPrice: 47, // 20% desconto
+      yearlyPrice: 50, // 15% desconto
       features: [
         "Até 5 trabalhadores",
         "WhatsApp + Instagram + Email",
@@ -155,7 +155,7 @@ export const PricingCards = ({ billingCycle }: PricingCardsProps) => {
           viewport={{ once: true }}
           className="text-center text-slate-500 text-sm mt-12"
         >
-          Todos os planos incluem 14 dias de teste grátis. Cancele quando quiser.
+          A configuração inicial tem um custo de 50€, exceto para assinantes do plano Premium.
         </motion.p>
       </div>
     </section>

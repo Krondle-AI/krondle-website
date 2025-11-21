@@ -16,10 +16,10 @@ export const SecuritySection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Seguro, confiável e sempre atualizado
+            Sempre seguro, sempre fiável, sempre atualizado
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Construído com as melhores práticas de segurança e infraestrutura cloud de alta disponibilidade.
+            Desenvolvido com padrões de segurança avançados e infraestrutura cloud altamente disponível.
           </p>
         </motion.div>
 
@@ -40,7 +40,7 @@ export const SecuritySection = () => {
                 RGPD Compliant
               </h3>
               <p className="text-slate-600">
-                Totalmente conforme com regulamentos de proteção de dados europeus.
+                Totalmente compatível com as diretrizes RGPD e outras normas europeias de privacidade.
               </p>
             </Card>
           </motion.div>
@@ -60,7 +60,7 @@ export const SecuritySection = () => {
                 99.9% Uptime
               </h3>
               <p className="text-slate-600">
-                Infraestrutura cloud redundante garante disponibilidade contínua.
+                Disponibilidade contínua assegurada por uma infraestrutura cloud robusta e redundante.
               </p>
             </Card>
           </motion.div>
@@ -77,10 +77,10 @@ export const SecuritySection = () => {
                 <Sparkles className="w-8 h-8 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">
-                Sempre Atualizado
+                Atualizações contínuas
               </h3>
               <p className="text-slate-600">
-                Melhorias contínuas e novas funcionalidades adicionadas regularmente.
+                O Krondle evolui continuamente com atualizações e novidades constantes.
               </p>
             </Card>
           </motion.div>

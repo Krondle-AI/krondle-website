@@ -18,15 +18,11 @@ export function FeaturesCTA() {
               </div>
 
               <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[2.6rem] font-bold leading-tight">
-                Transforme o seu negócio
-                <br />
-                com um assistente que nunca dorme.
+                Chegou a hora de automatizar o seu negócio — está pronto?
               </h2>
 
               <p className="mt-4 max-w-xl text-sm sm:text-base text-cyan-50/90">
-                Centralize marcações, respostas e acompanhamento numa só
-                plataforma. Todas as funcionalidades foram pensadas para PMEs
-                de serviços que não têm tempo a perder.
+                Tudo num só lugar: marcações, respostas e acompanhamento. Criado para PMEs de serviços que valorizam cada minuto.
               </p>
 
               {/* “Bullets” pequenos */}

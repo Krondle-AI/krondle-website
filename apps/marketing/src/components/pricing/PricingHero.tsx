@@ -29,7 +29,7 @@ export const PricingHero = ({ billingCycle, setBillingCycle }: PricingHeroProps)
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-200 mb-6">
             <Check className="w-4 h-4 text-cyan-600" />
             <span className="text-sm font-medium text-cyan-700">
-              Planos simples e transparentes
+              Clareza total. Simplicidade real.
             </span>
           </div>
 
@@ -43,32 +43,30 @@ export const PricingHero = ({ billingCycle, setBillingCycle }: PricingHeroProps)
 
           {/* Description */}
           <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-            Automatize o seu negócio com preços acessíveis. Sem surpresas, sem taxas escondidas.
+            A transparência que o seu negócio merece: automação acessível e sem surpresas.
           </p>
 
           {/* Billing Toggle */}
           <div className="inline-flex items-center gap-4 p-2 bg-slate-100 rounded-full">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-6 py-2 rounded-full font-medium text-sm transition-all ${
-                billingCycle === "monthly"
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
+              className={`px-6 py-2 rounded-full font-medium text-sm transition-all ${billingCycle === "monthly"
+                ? "bg-white text-slate-900 shadow-sm"
+                : "text-slate-600 hover:text-slate-900"
+                }`}
             >
               Mensal
             </button>
             <button
               onClick={() => setBillingCycle("yearly")}
-              className={`px-6 py-2 rounded-full font-medium text-sm transition-all relative ${
-                billingCycle === "yearly"
-                  ? "bg-white text-slate-900 shadow-sm"
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
+              className={`px-6 py-2 rounded-full font-medium text-sm transition-all relative ${billingCycle === "yearly"
+                ? "bg-white text-slate-900 shadow-sm"
+                : "text-slate-600 hover:text-slate-900"
+                }`}
             >
               Anual
               <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-green-500 text-white text-xs font-bold rounded-full">
-                -20%
+                até -20%
               </span>
             </button>
           </div>

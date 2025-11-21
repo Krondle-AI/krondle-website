@@ -13,16 +13,16 @@ export const PricingFAQ = () => {
       answer: "Sim! Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações são aplicadas imediatamente e o valor é ajustado proporcionalmente."
     },
     {
-      question: "O que acontece após o período de teste?",
-      answer: "Após os 14 dias de teste grátis, será automaticamente cobrado pelo plano escolhido. Pode cancelar a qualquer momento durante o período de teste sem qualquer custo."
+      question: "Como mantêm os meus dados seguros?",
+      answer: "Todos os dados são encriptados e armazenados de forma segura, seguindo padrões de segurança internacionais."
     },
     {
       question: "Há taxas de configuração ou custos escondidos?",
-      answer: "Não! O preço que vê é o preço que paga. Sem taxas de configuração, sem custos escondidos. Apenas o valor mensal ou anual do plano escolhido."
+      answer: "Sim. Existe uma taxa de configuração de 50€ aplicada ao Plano Basic e ao Plano Pro. Esta taxa é isenta no plano Premium."
     },
     {
       question: "Como funciona o desconto anual?",
-      answer: "Ao escolher o pagamento anual, obtém 20% de desconto em relação ao pagamento mensal. O valor total é cobrado anualmente."
+      answer: "Ao escolher o pagamento anual, obtém até 20% de desconto em relação ao pagamento mensal. O valor total é cobrado anualmente."
     },
     {
       question: "Posso cancelar a subscrição?",
@@ -30,11 +30,11 @@ export const PricingFAQ = () => {
     },
     {
       question: "Que métodos de pagamento aceitam?",
-      answer: "Aceitamos cartões de crédito/débito (Visa, Mastercard, American Express) e MBWay. Os pagamentos são processados de forma segura através do Stripe."
+      answer: "Aceitamos cartões de crédito/débito (Visa, Mastercard), Paypal e MBWay. Os pagamentos são processados de forma segura através do Stripe. -- INVENTEI"
     },
     {
       question: "Há suporte técnico incluído?",
-      answer: "Sim! Todos os planos incluem suporte por email. Os planos Pro e Premium incluem suporte prioritário, e o Premium tem gestor de conta dedicado."
+      answer: "Sim! Todos os planos incluem suporte por email. Os planos Pro e Premium incluem suporte prioritário, e o Premium tem gestor de conta dedicado. -- CHAT"
     },
     {
       question: "O que acontece se exceder os limites do meu plano?",
@@ -78,13 +78,12 @@ export const PricingFAQ = () => {
                   <h3 className="text-lg font-semibold text-slate-900 pr-4">
                     {faq.question}
                   </h3>
-                  <ChevronDown 
-                    className={`w-6 h-6 text-slate-600 flex-shrink-0 transition-transform duration-300 ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
+                  <ChevronDown
+                    className={`w-6 h-6 text-slate-600 flex-shrink-0 transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''
+                      }`}
                   />
                 </div>
-                
+
                 {openIndex === index && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
@@ -111,8 +110,8 @@ export const PricingFAQ = () => {
           <p className="text-slate-600 mb-4">
             Ainda tem dúvidas?
           </p>
-          <a 
-            href="mailto:suporte@krondle.pt" 
+          <a
+            href="mailto:krondleai@gmail.com"
             className="text-cyan-600 hover:text-cyan-700 font-semibold"
           >
             Contacte-nos →

@@ -19,13 +19,11 @@ export function PricingCTA() {
                             </div>
 
                             <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[2.6rem] font-bold leading-tight">
-                                Pronto para automatizar
-                                <br /> o seu negócio?
+                                    Pronto para deixar o Krondle trabalhar por si?
                             </h2>
 
                             <p className="mt-4 max-w-xl text-sm sm:text-base text-cyan-50/90">
-                                Teste o Krondle e veja como a automação de marcações pode
-                                transformar o seu fluxo de trabalho e libertar o seu tempo.
+                                Experimente o Krondle e veja na prática como a automação de marcações transforma o seu dia a dia.
                             </p>
                         </div>
 
