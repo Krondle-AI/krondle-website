@@ -1,0 +1,64 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Sparkles, ChevronRight } from "lucide-react"
+import { Button } from "@krondle/common/components/ui/button"
+import { Link } from "react-router-dom"
+
+export const FeaturesHero = () => {
+  return (
+    <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      {/* Background gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-400/20 rounded-full blur-3xl" />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-200 mb-6">
+            <Sparkles className="w-4 h-4 text-cyan-600" />
+            <span className="text-sm font-medium text-cyan-700">
+              Tecnologia de ponta para o seu negócio
+            </span>
+          </div>
+
+          {/* Title */}
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
+            Automatização que{" "}
+            <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
+              funciona sozinha
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+            O Krondle combina Inteligência Artificial com automação total para transformar 
+            a forma como o seu negócio lida com agendamentos.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/agendar-demo">
+              <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 h-12 text-base">
+                Agendar Demo
+                <ChevronRight className="w-5 h-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/pricing">
+              <Button size="lg" variant="outline" className="border-slate-300 h-12 px-8 text-base">
+                Ver Preços
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}

@@ -1,8 +1,21 @@
-export default function FeaturesPage() {
+import { FeaturesHero } from "../components/features/Featureshero"
+import { FeaturesBento } from "../components/features/Featuresbento"
+import { AutomationDetail } from "../components/features/Automationdetail"
+import { AnalyticsDetail } from "../components/features/Analyticsdetail"
+import { SecuritySection } from "../components/features/Securitysection"
+import { FeaturesCTA } from "../components/features/FeaturesCTA"
+
+const FeaturesPage = () => {
   return (
-    <main className="p-12 text-center">
-      <h1 className="text-3xl font-bold">Funcionalidades</h1>
-      <p className="text-gray-600 mt-4">Aqui vais mostrar tudo o que o Krondle oferece.</p>
-    </main>
-  );
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
+      <FeaturesHero />
+      <FeaturesBento />
+      <AutomationDetail />
+      <AnalyticsDetail />
+      <SecuritySection />
+      <FeaturesCTA />
+    </div>
+  )
 }
+
+export default FeaturesPage
