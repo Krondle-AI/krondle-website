@@ -1,89 +1,78 @@
-"use client"
+// apps/marketing/src/components/how-it-works/HowItWorksCTA.tsx
 
-import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
-import { Button } from "@krondle/common/components/ui/button"
-import { Card } from "@krondle/common/components/ui/card"
-import { Link } from "react-router-dom"
+import { Button } from "@krondle/common";
+import { ArrowRight, Rocket } from "lucide-react";
 
-export const HowItWorksCTA = () => {
-  return (
-    <section className="py-20 px-4 bg-slate-50">
-      <div className="max-w-4xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Card className="relative overflow-hidden border-2 shadow-xl">
-            {/* Gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600" />
-            
-            {/* Subtle pattern overlay */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-10 right-10 w-32 h-32 bg-white rounded-full blur-2xl" />
-              <div className="absolute bottom-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl" />
+export function HowItWorksCTA() {
+    return (
+        <section className="py-20 px-4">
+            <div className="max-w-6xl mx-auto">
+                {/* Card principal com gradiente */}
+                <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 text-white shadow-2xl">
+                    <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center px-8 py-10 sm:px-12 sm:py-12 lg:px-16 lg:py-14">
+
+                        {/* Lado esquerdo */}
+                        <div>
+                            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur">
+                                <Rocket className="h-4 w-4" />
+                                <span>Setup em menos de 5 minutos</span>
+                            </div>
+
+                            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[2.6rem] font-bold leading-tight">
+                                Pronto para ver o Krondle
+                                <br /> a trabalhar por si?
+                            </h2>
+
+                            <p className="mt-4 max-w-xl text-sm sm:text-base text-cyan-50/90">
+                                Siga os passos da página ou experimente diretamente com o nosso assistente virtual.
+                                Em poucos cliques terá um fluxo completo de marcações automatizado.
+                            </p>
+                        </div>
+
+                        {/* Lado direito – CTAs */}
+                        <div className="flex flex-col items-stretch lg:items-end gap-4">
+
+                            <div className="flex flex-col gap-3 w-full max-w-xs">
+                                {/* Botão principal – Agendar reunião */}
+                                <Button
+                                    asChild
+                                    variant="outline"
+                                    size="lg"
+                                    className="border-white/70 text-white bg-white/10 hover:bg-white/15"
+                                >
+                                    <a href="/agendar-demo">
+                                        <span>Agendar reunião</span>
+                                        <ArrowRight className="h-4 w-4" />
+                                    </a>
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Navegação cruzada igual aos outros CTAs */}
+                <div className="mt-8 text-center text-sm sm:text-base">
+                    <p className="mb-3 text-slate-600 dark:text-slate-300">
+                        Ainda a explorar o Krondle?
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium">
+                        <a
+                            href="/features"
+                            className="text-cyan-700 hover:text-cyan-800 dark:text-cyan-200 dark:hover:text-cyan-100"
+                        >
+                            Ver funcionalidades →
+                        </a>
+
+                        <a
+                            href="/pricing"
+                            className="text-cyan-700 hover:text-cyan-800 dark:text-cyan-200 dark:hover:text-cyan-100"
+                        >
+                            Ver preços →
+                        </a>
+                    </div>
+                </div>
             </div>
-
-            {/* Content */}
-            <div className="relative z-10 p-12 md:p-16 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Pronto para automatizar?
-              </h2>
-              <p className="text-xl text-cyan-50 mb-8 max-w-2xl mx-auto">
-                Configure em 5 minutos e deixe a IA trabalhar por si.
-              </p>
-              
-              {/* CTA Button */}
-              <Link to="/agendar-demo">
-                <Button 
-                  size="lg" 
-                  className="bg-white hover:bg-slate-50 text-slate-900 px-10 h-14 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
-                >
-                  Começar teste gratuito
-                  <ArrowRight className="w-5 h-5 ml-2" />
-                </Button>
-              </Link>
-
-              {/* Features list */}
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-cyan-50">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>14 dias grátis</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>Sem cartão necessário</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span>Cancele quando quiser</span>
-                </div>
-              </div>
-            </div>
-          </Card>
-        </motion.div>
-
-        {/* Bottom links */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-8 text-center space-y-3"
-        >
-          <p className="text-slate-600">
-            Ainda tem dúvidas sobre como funciona?
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link to="/features" className="text-cyan-600 hover:text-cyan-700 font-semibold">
-              Ver todas as funcionalidades →
-            </Link>
-            <Link to="/pricing" className="text-cyan-600 hover:text-cyan-700 font-semibold">
-              Ver preços →
-            </Link>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
+        </section>
+    );
 }

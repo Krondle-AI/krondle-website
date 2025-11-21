@@ -25,29 +25,28 @@ export const FeaturesHero = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 border border-cyan-200 mb-6">
             <Sparkles className="w-4 h-4 text-cyan-600" />
             <span className="text-sm font-medium text-cyan-700">
-              Tecnologia de ponta para o seu negócio
+              Conectando o seu negócio ao amanhã
             </span>
           </div>
 
           {/* Title */}
           <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
-            Automatização que{" "}
+              Menos trabalho manual{" "}
             <span className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent">
-              funciona sozinha
+              Mais resultados
             </span>
           </h1>
 
           {/* Description */}
           <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-            O Krondle combina Inteligência Artificial com automação total para transformar 
-            a forma como o seu negócio lida com agendamentos.
+            O Krondle utiliza Inteligência Artificial e automação total para simplificar e otimizar cada agendamento.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/agendar-demo">
               <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-8 h-12 text-base">
-                Agendar Demo
+                Agendar Reunião
                 <ChevronRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>

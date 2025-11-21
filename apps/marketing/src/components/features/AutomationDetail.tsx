@@ -19,14 +19,14 @@ export const AutomationDetail = () => {
               <Zap className="w-4 h-4 text-cyan-600" />
               <span className="text-sm font-medium text-cyan-700">Automação</span>
             </div>
-            
+
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
-              Funciona enquanto<br />você descansa
+              Enquanto você descansa, <br />o seu negócio continua a crescer
             </h2>
-            
+
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              O Krondle elimina completamente o trabalho manual de gestão de agendamentos. 
-              Uma vez configurado, o sistema opera de forma totalmente autónoma.
+              O Krondle automatiza totalmente a gestão de agendamentos, eliminando os processos manuais.
+              Após configurado, o sistema opera de forma autónoma e contínua.
             </p>
 
             <div className="space-y-4">
@@ -71,9 +71,9 @@ export const AutomationDetail = () => {
                   <Bell className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900 mb-1">Lembretes Automáticos</h4>
+                  <h4 className="font-semibold text-slate-900 mb-1">Lembretes Automáticos -- MUDAR</h4>
                   <p className="text-slate-600 text-sm">
-                    Envia lembretes antes da marcação para reduzir faltas.
+                    Envia lembretes antes da marcação para reduzir faltas. -- MUDAR
                   </p>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export const AutomationDetail = () => {
                   <div className="flex-1">
                     <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl rounded-tr-sm p-4 ml-12">
                       <p className="text-sm text-white">
-                        ✅ Marcação confirmada para Terça, 15:30. Enviarei um lembrete 1 hora antes.
+                        ✅ Marcação confirmada para Terça, 15:30. (Enviarei um lembrete 1 hora antes. MUDAR??)
                       </p>
                     </div>
                     <p className="text-xs text-slate-500 mt-1 mr-2 text-right">14:24</p>
@@ -154,7 +154,7 @@ export const AutomationDetail = () => {
                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                     <span className="font-medium">Processado automaticamente</span>
                   </div>
-                  <span className="text-slate-500">2 segundos</span>
+                  <span className="text-slate-500">30 segundos</span>
                 </div>
               </div>
             </Card>

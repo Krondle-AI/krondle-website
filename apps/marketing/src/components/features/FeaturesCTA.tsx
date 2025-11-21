@@ -1,109 +1,92 @@
-"use client"
+// apps/marketing/src/components/features/FeaturesCTA.tsx
 
-import { motion } from "framer-motion"
-import { ArrowRight, Sparkles } from "lucide-react"
-import { Button } from "@krondle/common/components/ui/button"
-import { Card } from "@krondle/common/components/ui/card"
-import { Link } from "react-router-dom"
+import { Button } from '@krondle/common'
+import { ArrowRight, Zap, BarChart3, Bot } from 'lucide-react'
 
-export const FeaturesCTA = () => {
+export function FeaturesCTA() {
   return (
     <section className="py-20 px-4">
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <Card className="relative overflow-hidden border-0 shadow-2xl">
-            {/* Gradient Background - mais forte */}
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-700" />
-            
-            {/* Animated gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10" />
-            
-            {/* Floating shapes */}
-            <div className="absolute top-10 right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse" />
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-cyan-300/20 rounded-full blur-3xl animate-pulse delay-700" />
-            
-            {/* Content */}
-            <div className="relative z-10 px-8 py-20 md:py-24 text-center">
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 mb-8"
-              >
-                <Sparkles className="w-4 h-4 text-white" />
-                <span className="text-sm font-medium text-white">
-                  Comece hoje mesmo
-                </span>
-              </motion.div>
+      <div className="max-w-6xl mx-auto">
+        {/* Card principal em gradiente */}
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] items-center px-8 py-10 sm:px-12 sm:py-12 lg:px-16 lg:py-14">
+            {/* Lado esquerdo */}
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium backdrop-blur">
+                <Zap className="h-4 w-4" />
+                <span>Comece a automatizar hoje</span>
+              </div>
 
-              <motion.h2 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
-              >
+              <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[2.6rem] font-bold leading-tight">
                 Transforme o seu negócio
-              </motion.h2>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-cyan-50 mb-10 max-w-2xl mx-auto"
-              >
-                Automatize agendamentos em minutos e foque-se no que realmente importa
-              </motion.p>
-              
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-              >
-                <Link to="/agendar-demo">
-                  <Button 
-                    size="lg" 
-                    className="bg-white hover:bg-slate-50 text-slate-900 px-10 h-16 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-                  >
-                    Agendar Demo Gratuita
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Button>
-                </Link>
-              </motion.div>
+                <br />
+                com um assistente que nunca dorme.
+              </h2>
 
-              {/* Features list */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.6 }}
-                className="mt-10 flex flex-wrap items-center justify-center gap-6 text-cyan-50 text-sm"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-300" />
-                  <span>Configuração em 5 minutos</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-300" />
-                  <span>Sem cartão necessário</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-300" />
-                  <span>Suporte em português</span>
-                </div>
-              </motion.div>
+              <p className="mt-4 max-w-xl text-sm sm:text-base text-cyan-50/90">
+                Centralize marcações, respostas e acompanhamento numa só
+                plataforma. Todas as funcionalidades foram pensadas para PMEs
+                de serviços que não têm tempo a perder.
+              </p>
+
+              {/* “Bullets” pequenos */}
+              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-cyan-50">
+                <span className="inline-flex items-center gap-2">
+                  <Zap className="h-4 w-4" />
+                  Configuração em 5 minutos
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Bot className="h-4 w-4" />
+                  Automatização ponta-a-ponta
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <BarChart3 className="h-4 w-4" />
+                  Insights em tempo real
+                </span>
+              </div>
             </div>
-          </Card>
-        </motion.div>
+
+            {/* Lado direito – CTAs */}
+            <div className="flex flex-col items-stretch lg:items-end gap-4">
+
+              <div className="flex flex-col gap-3 w-full max-w-xs">
+                {/* Botão principal – Agendar reunião */}
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-white/70 text-white bg-white/10 hover:bg-white/15"
+                >
+                  <a href="/agendar-demo">
+                    <span>Agendar reunião</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navegação extra, estilo “Ainda tem dúvidas…” */}
+        <div className="mt-8 text-center text-sm sm:text-base">
+          <p className="mb-3 text-slate-600 dark:text-slate-300">
+            Ainda a explorar o Krondle?
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium">
+            <a
+              href="/pricing"
+              className="text-cyan-700 hover:text-cyan-800 dark:text-cyan-200 dark:hover:text-cyan-100"
+            >
+              Ver preços →
+            </a>
+            <a
+              href="/howitworks"
+              className="text-cyan-700 hover:text-cyan-800 dark:text-cyan-200 dark:hover:text-cyan-100"
+            >
+              Ver como funciona →
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   )

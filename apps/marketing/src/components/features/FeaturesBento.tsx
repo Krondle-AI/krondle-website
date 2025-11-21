@@ -33,8 +33,7 @@ export const FeaturesBento = () => {
             Tudo o que precisa, num só lugar
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Uma plataforma completa que automatiza agendamentos, comunica com clientes 
-            e fornece insights para crescer o seu negócio.
+            A plataforma completa que trata dos seus agendamentos, fala com os seus clientes e mostra exatamente como fazer o seu negócio crescer.
           </p>
         </motion.div>
 
@@ -56,7 +55,7 @@ export const FeaturesBento = () => {
                 Automação Total
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                Sistema 100% automático que funciona 24/7. Nenhuma intervenção manual necessária.
+                Operação contínua e totalmente automatizada, 24 horas por dia, 7 dias por semana.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-slate-700">
@@ -65,7 +64,7 @@ export const FeaturesBento = () => {
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
                   <CheckCircle2 className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
-                  <span>Confirmações e lembretes enviados automaticamente</span>
+                  <span>Confirmações e lembretes enviados automaticamente --- MUDAR</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
                   <CheckCircle2 className="w-5 h-5 text-cyan-500 flex-shrink-0 mt-0.5" />
@@ -91,7 +90,7 @@ export const FeaturesBento = () => {
                 Multi-Canal
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                Atenda seus clientes onde eles estão, em todos os canais de comunicação.
+                Todos os canais, todos os clientes — um atendimento sempre disponível.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200">
@@ -126,7 +125,7 @@ export const FeaturesBento = () => {
                 IA Conversacional
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                Inteligência Artificial que compreende linguagem natural e responde como humano.
+                Comunicação automática com qualidade humana, graças à nossa IA avançada.
               </p>
               <div className="space-y-3 bg-white rounded-xl p-4 border border-slate-200">
                 <div className="text-sm text-slate-700 bg-slate-100 rounded-lg p-3">
@@ -134,7 +133,7 @@ export const FeaturesBento = () => {
                 </div>
                 <div className="text-sm text-slate-700 bg-cyan-100 rounded-lg p-3">
                   <Bot className="w-4 h-4 inline mr-2 text-cyan-600" />
-                  <span>"Temos vaga às 15h e 17h. Qual prefere?"</span>
+                  <span>"Temos vaga às 15h e às 17h. Qual prefere?"</span>
                 </div>
               </div>
             </Card>
@@ -153,15 +152,15 @@ export const FeaturesBento = () => {
                 <BarChart3 className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                Analytics Poderoso
+                Analytics
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                Métricas em tempo real para decisões baseadas em dados.
+                Decida com confiança: métricas em tempo real ao seu alcance.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-sm text-slate-700">
                   <TrendingUp className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                  <span>Faturação e receitas em tempo real</span>
+                  <span>Faturação e receitas em tempo real --- MUDAR</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm text-slate-700">
                   <LineChart className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
@@ -226,7 +225,7 @@ export const FeaturesBento = () => {
                 Sempre Disponível
               </h3>
               <p className="text-slate-600 mb-4 leading-relaxed">
-                Nunca mais perca um cliente. O Krondle trabalha 24 horas por dia, 7 dias por semana.
+                Atendimento sem pausas. Resultados sem perdas. O Krondle funciona dia e noite.
               </p>
               <div className="bg-white rounded-xl p-4 border border-slate-200">
                 <div className="flex items-center justify-between mb-2">
@@ -237,7 +236,7 @@ export const FeaturesBento = () => {
                   </div>
                 </div>
                 <p className="text-xs text-slate-500">
-                  Uptime: 99.9% • Resposta &lt; 2 segundos
+                  Uptime: 99.9% • Resposta &lt; 15 segundos
                 </p>
               </div>
             </Card>

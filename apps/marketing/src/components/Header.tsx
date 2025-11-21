@@ -57,7 +57,7 @@ export function Header() {
             className="bg-gradient-to-r from-cyan-600 to-blue-600"
           >
             <Link to="/agendar-demo">
-              Agendar Demo
+              Agendar Reunião
             </Link>
           </Button>
         </div>

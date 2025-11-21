@@ -19,7 +19,7 @@ export const AnalyticsDetail = () => {
             <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-3xl blur-2xl" />
             <Card className="relative p-8 bg-white border-2">
               <h4 className="font-semibold text-slate-900 mb-6">Dashboard de Negócio</h4>
-              
+
               {/* Metrics Grid */}
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-4">
@@ -72,7 +72,7 @@ export const AnalyticsDetail = () => {
                   <span className="font-semibold text-slate-900">1.245€</span>
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
-                  <div className="bg-gradient-to-r from-cyan-500 to-blue-600 h-2 rounded-full" style={{width: '75%'}} />
+                  <div className="bg-gradient-to-r from-cyan-500 to-blue-600 h-2 rounded-full" style={{ width: '75%' }} />
                 </div>
 
                 <div className="flex items-center justify-between text-sm mt-4">
@@ -80,7 +80,7 @@ export const AnalyticsDetail = () => {
                   <span className="font-semibold text-slate-900">892€</span>
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 h-2 rounded-full" style={{width: '55%'}} />
+                  <div className="bg-gradient-to-r from-green-500 to-emerald-600 h-2 rounded-full" style={{ width: '55%' }} />
                 </div>
 
                 <div className="flex items-center justify-between text-sm mt-4">
@@ -88,7 +88,7 @@ export const AnalyticsDetail = () => {
                   <span className="font-semibold text-slate-900">654€</span>
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
-                  <div className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full" style={{width: '40%'}} />
+                  <div className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full" style={{ width: '40%' }} />
                 </div>
               </div>
             </Card>
@@ -104,14 +104,13 @@ export const AnalyticsDetail = () => {
               <BarChart3 className="w-4 h-4 text-orange-600" />
               <span className="text-sm font-medium text-orange-700">Analytics</span>
             </div>
-            
+
             <h2 className="text-4xl font-bold text-slate-900 mb-6">
               Decisões baseadas<br />em dados reais
             </h2>
-            
+
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Acompanhe métricas em tempo real e identifique oportunidades de crescimento 
-              com dashboards intuitivos e relatórios automáticos.
+              Métricas em tempo real, dashboards claros e relatórios automáticos — tudo para encontrar oportunidades de crescimento.
             </p>
 
             <div className="space-y-4">
@@ -134,7 +133,7 @@ export const AnalyticsDetail = () => {
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Clientes Recorrentes</h4>
                   <p className="text-slate-600 text-sm">
-                    Identifique os clientes mais fiéis e períodos de maior procura.
+                    Saiba exatamente quem são seus clientes mais fiéis e quando a procura aumenta.
                   </p>
                 </div>
               </div>
@@ -158,7 +157,7 @@ export const AnalyticsDetail = () => {
                 <div>
                   <h4 className="font-semibold text-slate-900 mb-1">Relatórios Personalizados</h4>
                   <p className="text-slate-600 text-sm">
-                    Crie relatórios customizados para as métricas que mais importam.
+                    Relatórios feitos à sua medida, com as métricas que importam de verdade.
                   </p>
                 </div>
               </div>
