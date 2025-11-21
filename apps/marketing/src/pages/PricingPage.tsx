@@ -1,8 +1,22 @@
-export default function PricingPage() {
+import { useState } from "react"
+import { PricingHero } from "../components/pricing/PricingHero"
+import { PricingCards } from "../components/pricing/PricingCards"
+import { PricingComparison } from "../components/pricing/PricingComparison"
+import { PricingFAQ } from "../components/pricing/PricingFAQ"
+import { PricingCTA } from "../components/pricing/PricingCTA"
+
+const PricingPage = () => {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
+
   return (
-    <main className="p-12 text-center">
-      <h1 className="text-3xl font-bold">Planos e Preços</h1>
-      <p className="text-gray-600 mt-4">Explora os diferentes planos para o teu negócio.</p>
-    </main>
-  );
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-50">
+      <PricingHero billingCycle={billingCycle} setBillingCycle={setBillingCycle} />
+      <PricingCards billingCycle={billingCycle} />
+      <PricingComparison />
+      <PricingFAQ />
+      <PricingCTA />
+    </div>
+  )
 }
+
+export default PricingPage
