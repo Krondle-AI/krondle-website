@@ -35,15 +35,13 @@ export function HowItWorksCTA() {
                             <div className="flex flex-col gap-3 w-full max-w-xs">
                                 {/* Botão principal – Agendar reunião */}
                                 <Button
-                                    asChild
                                     variant="outline"
                                     size="lg"
                                     className="border-white/70 text-white bg-white/10 hover:bg-white/15"
+                                    onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
                                 >
-                                    <a href="/agendar-demo">
-                                        <span>Agendar reunião</span>
-                                        <ArrowRight className="h-4 w-4" />
-                                    </a>
+                                    <span>Agendar reunião</span>
+                                    <ArrowRight className="h-4 w-4" />
                                 </Button>
                             </div>
                         </div>

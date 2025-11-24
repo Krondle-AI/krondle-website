@@ -67,7 +67,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                 <Mail className="h-4 w-4" />
-                <span>suporte@krondle.pt</span>
+                <span>krondleai@gmail.com</span>
               </li>
               <li className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                 <Phone className="h-4 w-4" />

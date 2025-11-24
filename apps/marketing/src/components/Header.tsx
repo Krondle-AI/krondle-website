@@ -4,7 +4,11 @@ import { useTheme } from "../providers/theme-provider";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export function Header() {
+interface HeaderProps {
+  openChat: () => void
+}
+
+export function Header({ openChat }: HeaderProps) {
   const { theme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -52,13 +56,11 @@ export function Header() {
             <Moon className="hidden h-5 w-5 dark:block" />
           </Button>
 
-          <Button 
-            asChild
+          <Button
+            onClick={openChat}
             className="bg-gradient-to-r from-cyan-600 to-blue-600"
           >
-            <Link to="/agendar-demo">
-              Agendar Reunião
-            </Link>
+            Agendar Reunião
           </Button>
         </div>
       </nav>
@@ -67,28 +69,28 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="space-y-1 px-6 pb-3 pt-2">
-            <Link 
-              to="/features" 
+            <Link
+              to="/features"
               className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
               onClick={() => setMobileMenuOpen(false)}
             >
               Features
             </Link>
-            <Link 
-              to="/pricing" 
+            <Link
+              to="/pricing"
               className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
               onClick={() => setMobileMenuOpen(false)}
             >
               Preços
             </Link>
-            <Link 
-              to="/howitworks" 
+            <Link
+              to="/howitworks"
               className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
               onClick={() => setMobileMenuOpen(false)}
             >
               Como Funciona
             </Link>
-            <Link 
+            <Link
               to="/agendar-demo"
               onClick={() => setMobileMenuOpen(false)}
             >

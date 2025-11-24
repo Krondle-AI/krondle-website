@@ -21,9 +21,9 @@ export function Hero() {
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 0.3, opacity: 0 }}
-        animate={{ 
-          scale: isExpanded ? 1 : 0.3, 
-          opacity: isExpanded ? 1 : 0 
+        animate={{
+          scale: isExpanded ? 1 : 0.3,
+          opacity: isExpanded ? 1 : 0
         }}
         transition={{ duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] }}
       >
@@ -36,7 +36,7 @@ export function Hero() {
       {/* Main Content Container */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          
+
           {/* Left Column - Text Content */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -147,10 +147,12 @@ export function Hero() {
               <Button
                 size="lg"
                 className="group bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white shadow-xl shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all px-8 py-7 text-lg"
+                onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
               >
-                Agendar Demo com a Equipa
+                Agendar Reunião com a Equipa
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
+
               <Button
                 size="lg"
                 variant="outline"
@@ -161,29 +163,14 @@ export function Hero() {
               </Button>
             </motion.div>
 
-            {/* Trust Indicators */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isExpanded ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 2.2 }}
-              className="mt-10 flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400"
-            >
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-green-600" />
-                <span>Sem cartão</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-green-600" />
-                <span>Cancele quando quiser</span>
-              </div>
-            </motion.div>
+           
           </motion.div>
 
           {/* Right Column - Chat Demo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
-            animate={{ 
-              opacity: isExpanded ? 1 : 0, 
+            animate={{
+              opacity: isExpanded ? 1 : 0,
               scale: isExpanded ? 1 : 0.8,
               rotateY: isExpanded ? 0 : -20
             }}
@@ -192,14 +179,14 @@ export function Hero() {
             style={{ perspective: '1000px' }}
           >
             {/* Chat Interface */}
-            <motion.div 
+            <motion.div
               className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-800 dark:to-slate-950 p-8 shadow-2xl border border-slate-700/50"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 blur-xl" />
-              
+
               {/* Chat Header */}
               <div className="relative flex items-center gap-3 mb-6 pb-4 border-b border-slate-700">
                 <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">

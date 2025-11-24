@@ -24,22 +24,6 @@ export function FeaturesCTA() {
               <p className="mt-4 max-w-xl text-sm sm:text-base text-cyan-50/90">
                 Tudo num só lugar: marcações, respostas e acompanhamento. Criado para PMEs de serviços que valorizam cada minuto.
               </p>
-
-              {/* “Bullets” pequenos */}
-              <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-cyan-50">
-                <span className="inline-flex items-center gap-2">
-                  <Zap className="h-4 w-4" />
-                  Configuração em 5 minutos
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <Bot className="h-4 w-4" />
-                  Automatização ponta-a-ponta
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <BarChart3 className="h-4 w-4" />
-                  Insights em tempo real
-                </span>
-              </div>
             </div>
 
             {/* Lado direito – CTAs */}
@@ -48,15 +32,13 @@ export function FeaturesCTA() {
               <div className="flex flex-col gap-3 w-full max-w-xs">
                 {/* Botão principal – Agendar reunião */}
                 <Button
-                  asChild
                   variant="outline"
                   size="lg"
                   className="border-white/70 text-white bg-white/10 hover:bg-white/15"
+                  onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
                 >
-                  <a href="/agendar-demo">
-                    <span>Agendar reunião</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </a>
+                  <span>Agendar reunião</span>
+                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </div>
