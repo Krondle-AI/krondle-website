@@ -162,8 +162,6 @@ export function Hero() {
                 Ver Vídeo (2 min)
               </Button>
             </motion.div>
-
-           
           </motion.div>
 
           {/* Right Column - Chat Demo */}
