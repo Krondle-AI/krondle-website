@@ -2,7 +2,6 @@ import { useState } from "react"
 import { PricingHero } from "../components/pricing/PricingHero"
 import { PricingCards } from "../components/pricing/PricingCards"
 import { PricingComparison } from "../components/pricing/PricingComparison"
-import { PricingFAQ } from "../components/pricing/PricingFAQ"
 import { PricingCTA } from "../components/pricing/PricingCTA"
 
 const PricingPage = () => {
@@ -13,7 +12,6 @@ const PricingPage = () => {
       <PricingHero billingCycle={billingCycle} setBillingCycle={setBillingCycle} />
       <PricingCards billingCycle={billingCycle} />
       <PricingComparison />
-      <PricingFAQ />
       <PricingCTA />
     </div>
   )

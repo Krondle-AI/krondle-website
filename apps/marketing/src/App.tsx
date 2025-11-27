@@ -5,6 +5,8 @@ import { LandingPage } from "./pages/LandingPage";
 import FeaturesPage from "./pages/FeaturesPage";
 import PricingPage from "./pages/PricingPage";
 import HowItWorksPage from "./pages/HowItWorksPage";
+import FAQPage from "./pages/FAQPage";
+import CulturePage from "./pages/CulturePage";
 import NotFound from "./pages/NotFound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -41,7 +43,9 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/features" element={<FeaturesPage />} />
             <Route path="/pricing" element={<PricingPage />} />
-            <Route path="/howitworks" element={<HowItWorksPage />} />
+            <Route path="/como-funciona" element={<HowItWorksPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/culture" element={<CulturePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

@@ -1,3 +1,5 @@
+// apps/marketing/src/components/Header.tsx
+
 import { Button } from "@krondle/common/components/ui/button";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useTheme } from "../providers/theme-provider";
@@ -35,14 +37,20 @@ export function Header({ openChat }: HeaderProps) {
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex lg:gap-x-8">
-          <Link to="/features" className="text-sm font-semibold hover:text-primary">
+          <Link to="/features" className="text-sm font-semibold hover:text-primary transition-colors">
             Features
           </Link>
-          <Link to="/pricing" className="text-sm font-semibold hover:text-primary">
+          <Link to="/pricing" className="text-sm font-semibold hover:text-primary transition-colors">
             Preços
           </Link>
-          <Link to="/howitworks" className="text-sm font-semibold hover:text-primary">
+          <Link to="/como-funciona" className="text-sm font-semibold hover:text-primary transition-colors">
             Como Funciona
+          </Link>
+          <Link to="/faq" className="text-sm font-semibold hover:text-primary transition-colors">
+            FAQ
+          </Link>
+          <Link to="/culture" className="text-sm font-semibold hover:text-primary transition-colors">
+            Culture
           </Link>
         </div>
 
@@ -58,7 +66,7 @@ export function Header({ openChat }: HeaderProps) {
 
           <Button
             onClick={openChat}
-            className="bg-gradient-to-r from-cyan-600 to-blue-600"
+            className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
           >
             Agendar Reunião
           </Button>
@@ -84,20 +92,36 @@ export function Header({ openChat }: HeaderProps) {
               Preços
             </Link>
             <Link
-              to="/howitworks"
+              to="/como-funciona"
               className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
               onClick={() => setMobileMenuOpen(false)}
             >
               Como Funciona
             </Link>
             <Link
-              to="/agendar-demo"
+              to="/faq"
+              className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <Button className="w-full mt-4 bg-gradient-to-r from-cyan-600 to-blue-600">
-                Agendar Demo
-              </Button>
+              FAQ
             </Link>
+            <Link
+              to="/culture"
+              className="block rounded-lg px-3 py-2 text-base font-semibold hover:bg-slate-50 dark:hover:bg-slate-800"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Culture
+            </Link>
+            
+            <Button 
+              onClick={() => {
+                openChat()
+                setMobileMenuOpen(false)
+              }}
+              className="w-full mt-4 bg-gradient-to-r from-cyan-600 to-blue-600"
+            >
+              Agendar Reunião
+            </Button>
           </div>
         </div>
       )}
