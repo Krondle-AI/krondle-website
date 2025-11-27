@@ -64,7 +64,7 @@ export function FAQHero() {
             className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
           >
             <MessageCircle className="w-5 h-5 mr-2" />
-            Falar com a Equipa
+            Pergunte Aqui
           </Button>
           
           <Button

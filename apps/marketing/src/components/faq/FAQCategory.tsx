@@ -17,6 +17,8 @@ interface FAQCategoryProps {
   description: string
   items: FAQItem[]
   delay?: number
+  gradient: string // Ex: "from-cyan-500 to-blue-600"
+  accentColor: string // Ex: "cyan"
 }
 
 export function FAQCategory({ 
@@ -24,7 +26,9 @@ export function FAQCategory({
   title, 
   description, 
   items, 
-  delay = 0 
+  delay = 0,
+  gradient,
+  accentColor
 }: FAQCategoryProps) {
   return (
     <motion.div
@@ -32,32 +36,59 @@ export function FAQCategory({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="mb-12"
+      className="mb-16"
     >
-      {/* Category Header */}
-      <div className="flex items-start gap-4 mb-6">
-        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-          <Icon className="w-6 h-6 text-white" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">
-            {title}
-          </h2>
-          <p className="text-slate-600 dark:text-slate-400">
-            {description}
-          </p>
+      {/* Category Header - MELHORADO */}
+      <div className="relative mb-8">
+        {/* Background Card */}
+        <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-r ${gradient} p-8 shadow-xl`}>
+          {/* Decorative circles */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2" />
+          
+          <div className="relative flex items-start gap-6">
+            {/* Icon */}
+            <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/30">
+              <Icon className="w-8 h-8 text-white" />
+            </div>
+
+            {/* Text */}
+            <div className="flex-1">
+              <h2 className="text-3xl font-bold text-white mb-2">
+                {title}
+              </h2>
+              <p className="text-white/90 text-lg">
+                {description}
+              </p>
+            </div>
+
+            {/* Question count badge */}
+            <div className="flex-shrink-0 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm">
+              <span className="text-white font-bold">{items.length} perguntas</span>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Questions */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="space-y-3">
         {items.map((item, index) => (
-          <FAQAccordion
+          <div 
             key={index}
-            question={item.question}
-            answer={item.answer}
-            defaultOpen={index === 0}
-          />
+            className={`
+              rounded-2xl border-2 border-${accentColor}-100 dark:border-${accentColor}-900/30
+              bg-white dark:bg-slate-800 
+              hover:border-${accentColor}-300 dark:hover:border-${accentColor}-700
+              transition-all hover:shadow-lg
+            `}
+          >
+            <FAQAccordion
+              question={item.question}
+              answer={item.answer}
+              defaultOpen={index === 0}
+              accentColor={accentColor}
+            />
+          </div>
         ))}
       </div>
     </motion.div>

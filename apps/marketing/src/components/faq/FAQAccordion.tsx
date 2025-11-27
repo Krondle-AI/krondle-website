@@ -11,23 +11,29 @@ interface FAQAccordionProps {
   question: string
   answer: string
   defaultOpen?: boolean
+  accentColor?: string
 }
 
-export function FAQAccordion({ question, answer, defaultOpen = false }: FAQAccordionProps) {
+export function FAQAccordion({ 
+  question, 
+  answer, 
+  defaultOpen = false,
+  accentColor = "cyan"
+}: FAQAccordionProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen)
 
   return (
-    <div className="border-b border-slate-200 dark:border-slate-700">
+    <div>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-start justify-between gap-4 text-left hover:opacity-70 transition-opacity group"
+        className="w-full px-6 py-5 flex items-start justify-between gap-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group rounded-2xl"
       >
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 pr-8">
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 pr-8 group-hover:text-${accentColor}-600 dark:group-hover:text-${accentColor}-400 transition-colors">
           {question}
         </h3>
         <ChevronDown
           className={cn(
-            "w-5 h-5 flex-shrink-0 text-slate-500 dark:text-slate-400 transition-transform duration-300",
+            `w-5 h-5 flex-shrink-0 text-${accentColor}-600 dark:text-${accentColor}-400 transition-transform duration-300`,
             isOpen && "rotate-180"
           )}
         />
@@ -42,7 +48,7 @@ export function FAQAccordion({ question, answer, defaultOpen = false }: FAQAccor
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-6 pr-12">
+            <div className="px-6 pb-6">
               <p className="text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre-line">
                 {answer}
               </p>
