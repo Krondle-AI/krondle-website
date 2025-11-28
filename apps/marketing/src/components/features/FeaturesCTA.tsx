@@ -1,11 +1,11 @@
 // apps/marketing/src/components/features/FeaturesCTA.tsx
 
 import { Button } from '@krondle/common'
-import { ArrowRight, Zap, BarChart3, Bot } from 'lucide-react'
+import { ArrowRight, Zap } from 'lucide-react'
 
 export function FeaturesCTA() {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-white dark:bg-slate-900">
       <div className="max-w-6xl mx-auto">
         {/* Card principal em gradiente */}
         <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-2xl">
@@ -45,7 +45,7 @@ export function FeaturesCTA() {
           </div>
         </div>
 
-        {/* Navegação extra, estilo “Ainda tem dúvidas…” */}
+        {/* Navegação extra, estilo "Ainda tem dúvidas…" */}
         <div className="mt-8 text-center text-sm sm:text-base">
           <p className="mb-3 text-slate-600 dark:text-slate-300">
             Ainda a explorar o Krondle?
@@ -58,7 +58,7 @@ export function FeaturesCTA() {
               Ver preços →
             </a>
             <a
-              href="/howitworks"
+              href="/como-funciona"
               className="text-cyan-700 hover:text-cyan-800 dark:text-cyan-200 dark:hover:text-cyan-100"
             >
               Ver como funciona →
