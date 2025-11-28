@@ -55,8 +55,9 @@ export const PricingComparison = () => {
   ]
 
   return (
-    <section className="py-20 px-4 bg-slate-50">
+    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto">
+        
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,10 +65,10 @@ export const PricingComparison = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">
             Compare todos os planos
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Veja em detalhe o que está incluído em cada plano
           </p>
         </motion.div>
@@ -78,22 +79,23 @@ export const PricingComparison = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <Card className="overflow-hidden border-2">
+          <Card className="overflow-hidden border-2 border-slate-200 dark:border-slate-800 dark:bg-slate-900">
             <div className="overflow-x-auto">
               <table className="w-full">
+                
                 {/* Table Header */}
-                <thead className="bg-slate-50 border-b-2">
+                <thead className="bg-slate-50 dark:bg-slate-800 border-b-2 dark:border-slate-700">
                   <tr>
-                    <th className="text-left p-6 font-semibold text-slate-900">
+                    <th className="text-left p-6 font-semibold text-slate-900 dark:text-white">
                       Funcionalidades
                     </th>
-                    <th className="text-center p-6 font-semibold text-slate-900 w-32">
+                    <th className="text-center p-6 font-semibold text-slate-900 dark:text-white w-32">
                       Basic
                     </th>
-                    <th className="text-center p-6 font-semibold text-slate-900 w-32 bg-cyan-50">
+                    <th className="text-center p-6 font-semibold text-slate-900 dark:text-white w-32 bg-cyan-50 dark:bg-cyan-900/40">
                       Pro
                     </th>
-                    <th className="text-center p-6 font-semibold text-slate-900 w-32">
+                    <th className="text-center p-6 font-semibold text-slate-900 dark:text-white w-32">
                       Premium
                     </th>
                   </tr>
@@ -104,52 +106,70 @@ export const PricingComparison = () => {
                   {features.map((category, categoryIdx) => (
                     <>
                       {/* Category Header */}
-                      <tr key={`category-${categoryIdx}`} className="bg-slate-100">
-                        <td colSpan={4} className="p-4 font-semibold text-slate-700 text-sm">
+                      <tr
+                        key={`category-${categoryIdx}`}
+                        className="bg-slate-100 dark:bg-slate-800"
+                      >
+                        <td
+                          colSpan={4}
+                          className="p-4 font-semibold text-slate-700 dark:text-slate-300 text-sm"
+                        >
                           {category.category}
                         </td>
                       </tr>
 
                       {/* Category Items */}
                       {category.items.map((item, itemIdx) => (
-                        <tr 
+                        <tr
                           key={`item-${categoryIdx}-${itemIdx}`}
-                          className="border-b hover:bg-slate-50 transition-colors"
+                          className="border-b border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors"
                         >
-                          <td className="p-4 text-slate-700">
+                          <td className="p-4 text-slate-700 dark:text-slate-300">
                             {item.name}
                           </td>
+
+                          {/* BASIC */}
                           <td className="p-4 text-center">
                             {typeof item.basic === "boolean" ? (
                               item.basic ? (
-                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                                <Check className="w-5 h-5 mx-auto text-green-600 dark:text-green-400" />
                               ) : (
-                                <X className="w-5 h-5 text-slate-300 mx-auto" />
+                                <X className="w-5 h-5 mx-auto text-slate-300 dark:text-slate-600" />
                               )
                             ) : (
-                              <span className="text-slate-700 font-medium">{item.basic}</span>
+                              <span className="text-slate-700 dark:text-slate-200 font-medium">
+                                {item.basic}
+                              </span>
                             )}
                           </td>
-                          <td className="p-4 text-center bg-cyan-50/50">
+
+                          {/* PRO */}
+                          <td className="p-4 text-center bg-cyan-50/50 dark:bg-cyan-900/20">
                             {typeof item.pro === "boolean" ? (
                               item.pro ? (
-                                <Check className="w-5 h-5 text-cyan-600 mx-auto" />
+                                <Check className="w-5 h-5 mx-auto text-cyan-600 dark:text-cyan-400" />
                               ) : (
-                                <X className="w-5 h-5 text-slate-300 mx-auto" />
+                                <X className="w-5 h-5 mx-auto text-slate-300 dark:text-slate-600" />
                               )
                             ) : (
-                              <span className="text-slate-700 font-medium">{item.pro}</span>
+                              <span className="text-slate-700 dark:text-slate-200 font-medium">
+                                {item.pro}
+                              </span>
                             )}
                           </td>
+
+                          {/* PREMIUM */}
                           <td className="p-4 text-center">
                             {typeof item.premium === "boolean" ? (
                               item.premium ? (
-                                <Check className="w-5 h-5 text-green-600 mx-auto" />
+                                <Check className="w-5 h-5 mx-auto text-green-600 dark:text-green-400" />
                               ) : (
-                                <X className="w-5 h-5 text-slate-300 mx-auto" />
+                                <X className="w-5 h-5 mx-auto text-slate-300 dark:text-slate-600" />
                               )
                             ) : (
-                              <span className="text-slate-700 font-medium">{item.premium}</span>
+                              <span className="text-slate-700 dark:text-slate-200 font-medium">
+                                {item.premium}
+                              </span>
                             )}
                           </td>
                         </tr>
