@@ -52,21 +52,6 @@ export function CultureHero() {
           Somos 6 estudantes de Informática e Gestão de Empresas no ISCTE com uma missão:
           Tornar a tecnologia de automação acessível a todos os negócios.
         </motion.p>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          <Button
-            size="lg"
-            onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
-            className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-lg px-8 py-7"
-          >
-            Junte-se a Nós
-          </Button>
-        </motion.div>
       </div>
     </section>
   )

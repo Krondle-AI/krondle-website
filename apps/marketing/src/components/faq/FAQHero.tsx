@@ -3,8 +3,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { HelpCircle, MessageCircle } from "lucide-react"
-import { Button } from "@krondle/common/components/ui/button"
+import { HelpCircle } from "lucide-react"
 
 export function FAQHero() {
   return (
@@ -45,38 +44,11 @@ export function FAQHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto"
+          className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto"
         >
           Encontre respostas rápidas para as suas dúvidas sobre o Krondle. 
-          Não encontrou o que procura? Contacte-nos!
+          Não encontrou o que procura? Contacte-nos no final da página!
         </motion.p>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <Button
-            size="lg"
-            onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
-            className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700"
-          >
-            <MessageCircle className="w-5 h-5 mr-2" />
-            Pergunte Aqui
-          </Button>
-          
-          <Button
-            size="lg"
-            variant="outline"
-            asChild
-          >
-            <a href="mailto:krondleai@gmail.com">
-              Enviar Email
-            </a>
-          </Button>
-        </motion.div>
       </div>
     </section>
   )

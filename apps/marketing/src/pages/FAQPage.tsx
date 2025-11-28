@@ -2,6 +2,7 @@
 
 import { FAQHero } from "../components/faq/FAQHero"
 import { FAQCategory } from "../components/faq/FAQCategory"
+import { FAQCTA } from "../components/faq/FAQCTA"
 import {
     Bot,
     CreditCard,
@@ -202,6 +203,7 @@ export default function FAQPage() {
 
                 </div>
             </section>
+            <FAQCTA />
         </div>
     )
 }
