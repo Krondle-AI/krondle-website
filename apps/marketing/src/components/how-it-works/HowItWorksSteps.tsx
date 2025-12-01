@@ -8,12 +8,11 @@ export const HowItWorksSteps = () => {
   const steps = [
     {
       number: 1,
-      title: "Configure em 5 minutos",
-      description: "Conecte o seu WhatsApp Business, defina horários e serviços. É rápido e intuitivo.",
+      title: "Configure o Krondle",
+      description: "Conecte o seu WhatsApp Business (requer número profissional), adicione serviços e horários e deixe o Krondle automatizar tudo por si.",
       icon: Settings,
       color: "from-cyan-500 to-blue-600",
       details: [
-        "Criar conta gratuita",
         "Conectar WhatsApp/Instagram",
         "Adicionar serviços e preços",
         "Definir horários de trabalho"
@@ -147,7 +146,7 @@ export const HowItWorksSteps = () => {
           <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-50 to-blue-50 border-2 border-cyan-200 rounded-full">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
             <span className="text-sm font-semibold text-slate-700">
-              Tempo total: ~2 segundos por marcação
+              Tempo total: ~1 minuto por marcação
             </span>
           </div>
         </motion.div>

@@ -155,7 +155,7 @@ export const HowItWorksDemo = () => {
                     <CheckCircle2 className="w-4 h-4" />
                     <span className="font-medium">Processado automaticamente</span>
                   </div>
-                  <span className="text-slate-500">2 segundos</span>
+                  <span className="text-slate-500">20 segundos</span>
                 </div>
               </motion.div>
             </Card>
@@ -182,32 +182,32 @@ export const HowItWorksDemo = () => {
                 {
                   step: "Receção",
                   description: "Mensagem recebida via WhatsApp API",
-                  time: "0.1s"
+                  time: "0.5s"
                 },
                 {
                   step: "Interpretação",
                   description: 'IA identificou: serviço="corte", dia="terça", período="tarde"',
-                  time: "0.3s"
+                  time: "5s"
                 },
                 {
                   step: "Consulta",
                   description: "Base de dados consultada para disponibilidade",
-                  time: "0.2s"
+                  time: "7s"
                 },
                 {
                   step: "Proposta",
                   description: "2 horários livres identificados e propostos",
-                  time: "0.1s"
+                  time: "3s"
                 },
                 {
                   step: "Confirmação",
                   description: "Marcação registada + lembretes agendados",
-                  time: "0.3s"
+                  time: "5s"
                 },
                 {
                   step: "Notificação",
                   description: "Trabalhador notificado da nova marcação",
-                  time: "0.1s"
+                  time: "3s"
                 }
               ].map((item, index) => (
                 <motion.div
@@ -242,7 +242,7 @@ export const HowItWorksDemo = () => {
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-green-900">Tempo total: ~1 segundo</p>
+                    <p className="font-semibold text-green-900">Tempo total: ~25 segundos</p>
                     <p className="text-sm text-green-700">100% automático, 0% intervenção manual</p>
                   </div>
                 </div>

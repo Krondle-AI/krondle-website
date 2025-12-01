@@ -37,7 +37,7 @@ export const HowItWorksHero = () => {
 
           {/* Description */}
           <p className="text-xl text-slate-600 leading-relaxed">
-            Configure em 5 minutos e deixe a IA gerir os seus agendamentos automaticamente. 
+            Configure e deixe a IA gerir os seus agendamentos automaticamente.
             É tão simples que nem vai acreditar.
           </p>
         </motion.div>
