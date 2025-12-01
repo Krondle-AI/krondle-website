@@ -6,7 +6,7 @@ import { Card } from "@krondle/common/components/ui/card"
 
 export const HowItWorksDemo = () => {
   return (
-    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-800">
+    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div

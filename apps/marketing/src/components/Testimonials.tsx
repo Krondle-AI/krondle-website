@@ -1,101 +1,156 @@
-// apps/marketing/src/components/Testimonials.tsx
-import { Card, CardContent } from "@krondle/common/components/ui/card";
-import { Quote, Star } from "lucide-react";
+"use client"
+
+import { Card, CardContent } from "@krondle/common/components/ui/card"
+import { Quote } from "lucide-react"
 
 const testimonials = [
   {
+    stat: "+40%",
+    label: "mais faturação no 1.º mês",
+    shortQuote: "Deixei de perder clientes por falta de resposta.",
+    fullQuote:
+      "Antes perdia 3–4 clientes por semana por não responder a tempo. Com o Krondle, tenho 100% de resposta imediata e faturei mais 40% no primeiro mês.",
     name: "João Silva",
     role: "Dono de Barbearia",
     business: "Cortes & Estilos, Lisboa",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Joao&backgroundColor=b6e3f4",
-    content:
-      "Antes perdia 3-4 clientes por semana por não responder a tempo. Com o Krondle, tenho 100% de resposta imediata. Faturei mais 40% no primeiro mês!",
-    rating: 5,
+    image:
+      "https://api.dicebear.com/7.x/avataaars/svg?seed=Joao&backgroundColor=b6e3f4",
   },
   {
+    stat: "10 min",
+    label: "para configurar tudo",
+    shortQuote:
+      "Em poucos minutos o assistente já estava a marcar clientes sozinho.",
     name: "Carlos Mendes",
     role: "Barbeiro",
     business: "Barbearia Vintage, Porto",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos&backgroundColor=c0aede",
-    content:
-      "Setup super fácil e intuitivo. Em 10 minutos estava tudo configurado. O dashboard com analytics ajudou-me a otimizar os horários de maior procura.",
-    rating: 5,
+    image:
+      "https://api.dicebear.com/7.x/avataaars/svg?seed=Carlos&backgroundColor=c0aede",
   },
   {
+    stat: "24/7",
+    label: "respostas automáticas",
+    shortQuote:
+      "Foco-me nos cortes, o Krondle trata das marcações e respostas.",
     name: "Miguel Costa",
     role: "Dono de Barbearia",
     business: "Barbearia Moderna, Braga",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Miguel&backgroundColor=ffd5dc",
-    content:
-      "A melhor decisão que tomei! Agora consigo focar nos cortes enquanto o Krondle gere todas as marcações. Os clientes adoram a rapidez nas respostas.",
-    rating: 5,
+    image:
+      "https://api.dicebear.com/7.x/avataaars/svg?seed=Miguel&backgroundColor=ffd5dc",
   },
-];
+]
 
 export function Testimonials() {
+  const [featured, ...others] = testimonials
+
   return (
-    <section className="bg-white dark:bg-slate-800 px-6 py-24 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-slate-900 dark:text-white sm:text-5xl">
-            O que dizem os nossos clientes
+    <section className="px-6 py-24 lg:px-8 bg-white dark:bg-slate-900">
+      <div className="max-w-6xl mx-auto space-y-12">
+
+        {/* SECTION HEADER */}
+        <div className="text-center space-y-3">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">
+            Resultados reais, todos os meses
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-300">
-            Barbeiros reais, resultados reais
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300">
+            Pequenos negócios portugueses a crescer com o Krondle.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <Card 
-              key={testimonial.name} 
-              className="relative border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl hover:scale-105 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 group overflow-hidden"
-            >
-              {/* Animated gradient border effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-cyan-500/20 animate-pulse" />
-              </div>
+        {/* FEATURED CARD */}
+        <Card className="border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-xl rounded-3xl">
+          <CardContent className="p-10 md:p-12 space-y-8">
 
-              <CardContent className="relative p-8 flex flex-col h-full">
-                <Quote className="mb-6 h-12 w-12 text-cyan-600/20 group-hover:text-cyan-600/60 transition-colors duration-300" />
-                
-                <div className="mb-6 flex gap-1 justify-center">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star 
-                      key={i} 
-                      className="h-5 w-5 fill-yellow-400 text-yellow-400 group-hover:scale-110 transition-transform duration-300"
-                      style={{ transitionDelay: `${i * 50}ms` }}
-                    />
-                  ))}
+            {/* BADGE */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-300 text-sm font-medium">
+              <span className="h-2 w-2 rounded-full bg-cyan-500"></span>
+              História em destaque
+            </div>
+
+            {/* STAT */}
+            <div className="flex flex-wrap items-end gap-3">
+              <span className="text-5xl font-bold text-slate-900 dark:text-white">
+                {featured.stat}
+              </span>
+              <span className="text-lg text-slate-600 dark:text-slate-400">
+                {featured.label}
+              </span>
+            </div>
+
+            {/* QUOTE */}
+            <div className="space-y-4 max-w-3xl">
+              <div className="flex items-center gap-2 text-cyan-700 dark:text-cyan-300 font-medium">
+                <Quote className="h-5 w-5 opacity-70" />
+                {featured.shortQuote}
+              </div>
+              <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
+                {featured.fullQuote}
+              </p>
+            </div>
+
+            {/* PERSON */}
+            <div className="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <img
+                src={featured.image}
+                className="h-14 w-14 rounded-full border border-slate-300 dark:border-slate-600"
+              />
+              <div>
+                <div className="font-semibold text-slate-900 dark:text-white">{featured.name}</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">
+                  {featured.role} • {featured.business}
+                </div>
+              </div>
+            </div>
+
+          </CardContent>
+        </Card>
+
+        {/* OTHER 2 CARDS */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {others.map((t) => (
+            <Card
+              key={t.name}
+              className="border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-3xl shadow-md hover:shadow-lg transition-all"
+            >
+              <CardContent className="p-8 space-y-6">
+
+                <div className="space-y-1">
+                  <span className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400 font-medium">
+                    Resultado
+                  </span>
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-3xl font-bold text-slate-900 dark:text-white">
+                      {t.stat}
+                    </span>
+                    <span className="text-sm text-slate-600 dark:text-slate-400">
+                      {t.label}
+                    </span>
+                  </div>
                 </div>
 
-                <p className="mb-8 text-slate-700 dark:text-slate-300 leading-relaxed text-lg flex-grow text-center">
-                  "{testimonial.content}"
+                <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
+                  “{t.shortQuote}”
                 </p>
 
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex items-center gap-3">
                   <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="h-16 w-16 rounded-full ring-2 ring-cyan-600/20 group-hover:ring-4 group-hover:ring-cyan-600/60 transition-all duration-300"
+                    src={t.image}
+                    className="h-12 w-12 rounded-full border border-slate-300 dark:border-slate-600"
                   />
-                  <div className="text-center">
-                    <div className="font-bold text-slate-900 dark:text-white text-lg">
-                      {testimonial.name}
-                    </div>
+                  <div>
+                    <div className="font-semibold text-slate-900 dark:text-white">{t.name}</div>
                     <div className="text-sm text-slate-600 dark:text-slate-400">
-                      {testimonial.role}
-                    </div>
-                    <div className="text-sm text-slate-500 dark:text-slate-500">
-                      {testimonial.business}
+                      {t.role} • {t.business}
                     </div>
                   </div>
                 </div>
+
               </CardContent>
             </Card>
           ))}
         </div>
+
       </div>
     </section>
-  );
+  )
 }

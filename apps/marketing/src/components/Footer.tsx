@@ -3,7 +3,7 @@ import { Calendar, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+    <footer className="bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-4">
           {/* Brand */}
@@ -75,13 +75,6 @@ export function Footer() {
               </li>
             </ul>
           </div>
-        </div>
-
-        {/* Bottom */}
-        <div className="mt-12 border-t border-slate-200 dark:border-slate-800 pt-8 text-center">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            © 2025 Krondle. Projeto Académico ISCTE - Grupo 4
-          </p>
         </div>
       </div>
     </footer>

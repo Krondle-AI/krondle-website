@@ -1,9 +1,8 @@
 import { Hero } from "../components/Hero";
 import { SocialProof } from "../components/SocialProof";
-import { BentoFeatures } from "../components/BentoFeatures";
-import { HowItWorks } from "../components/HowItWorks";
 import { Testimonials } from "../components/Testimonials";
 import { CTAFinal } from "../components/CTAFinal";
+import { FeaturesFlow } from "../components/FeaturesFlow";
 
 
 export function LandingPage() {
@@ -11,8 +10,7 @@ export function LandingPage() {
     <>
       <Hero />
       <SocialProof />
-      <BentoFeatures />
-      <HowItWorks />
+      <FeaturesFlow />
       <Testimonials />
       <CTAFinal />
     </>

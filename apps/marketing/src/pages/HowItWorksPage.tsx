@@ -2,7 +2,6 @@ import { HowItWorksHero } from "../components/how-it-works/HowItWorksHero"
 import { HowItWorksSteps } from "../components/how-it-works/HowItWorksSteps"
 import { HowItWorksDemo } from "../components/how-it-works/HowItWorksDemo"
 import { HowItWorksFeatures } from "../components/how-it-works/HowItWorksFeatures"
-import { HowItWorksCTA } from "../components/how-it-works/HowItWorksCTA"
 
 const HowItWorksPage = () => {
   return (
@@ -11,7 +10,6 @@ const HowItWorksPage = () => {
       <HowItWorksSteps />
       <HowItWorksDemo />
       <HowItWorksFeatures />
-      <HowItWorksCTA />
     </div>
   )
 }

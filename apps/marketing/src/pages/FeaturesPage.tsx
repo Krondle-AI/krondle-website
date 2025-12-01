@@ -1,9 +1,8 @@
-import { FeaturesHero } from "../components/features/Featureshero"
-import { FeaturesBento } from "../components/features/Featuresbento"
-import { AutomationDetail } from "../components/features/Automationdetail"
-import { AnalyticsDetail } from "../components/features/Analyticsdetail"
-import { SecuritySection } from "../components/features/Securitysection"
-import { FeaturesCTA } from "../components/features/FeaturesCTA"
+import { FeaturesHero } from "../components/features/FeaturesHero"
+import { FeaturesBento } from "../components/features/FeaturesBento"
+import { AutomationDetail } from "../components/features/AutomationDetail"
+import { AnalyticsDetail } from "../components/features/AnalyticsDetail"
+import { SecuritySection } from "../components/features/SecuritySection"
 
 const FeaturesPage = () => {
   return (
@@ -13,7 +12,6 @@ const FeaturesPage = () => {
       <AutomationDetail />
       <AnalyticsDetail />
       <SecuritySection />
-      <FeaturesCTA />
     </div>
   )
 }

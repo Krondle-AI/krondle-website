@@ -2,7 +2,6 @@ import { useState } from "react"
 import { PricingHero } from "../components/pricing/PricingHero"
 import { PricingCards } from "../components/pricing/PricingCards"
 import { PricingComparison } from "../components/pricing/PricingComparison"
-import { PricingCTA } from "../components/pricing/PricingCTA"
 
 const PricingPage = () => {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly")
@@ -12,7 +11,6 @@ const PricingPage = () => {
       <PricingHero billingCycle={billingCycle} setBillingCycle={setBillingCycle} />
       <PricingCards billingCycle={billingCycle} />
       <PricingComparison />
-      <PricingCTA />
     </div>
   )
 }

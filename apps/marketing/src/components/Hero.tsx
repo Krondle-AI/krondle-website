@@ -1,293 +1,417 @@
 // apps/marketing/src/components/Hero.tsx
 import { Button } from "@krondle/common/components/ui/button";
-import { ArrowRight, Play, Check, Sparkles } from "lucide-react";
+import { ArrowRight, Play, Sparkles, Calendar, TrendingUp, Clock, Zap, Users, DollarSign } from "lucide-react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
 
 export function Hero() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  useEffect(() => {
-    // Trigger expansion animation after component mounts
-    const timer = setTimeout(() => {
-      setIsExpanded(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950">
-      {/* Animated Background */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ scale: 0.3, opacity: 0 }}
-        animate={{
-          scale: isExpanded ? 1 : 0.3,
-          opacity: isExpanded ? 1 : 0
-        }}
-        transition={{ duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] }}
-      >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-900">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
         {/* Gradient blobs */}
-        <div className="absolute top-1/4 -right-1/4 w-96 h-96 bg-cyan-500/30 dark:bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 -left-1/4 w-96 h-96 bg-blue-500/30 dark:bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-indigo-500/10 rounded-full blur-3xl" />
-      </motion.div>
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.4, 0.6, 0.4],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-cyan-400/40 dark:bg-cyan-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.4, 0.6, 0.4],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-1/4 -left-1/4 w-[600px] h-[600px] bg-blue-400/40 dark:bg-blue-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-cyan-400/30 via-blue-400/30 to-indigo-400/30 dark:from-cyan-500/15 dark:via-blue-500/15 dark:to-indigo-500/15 rounded-full blur-3xl"
+        />
+      </div>
 
-      {/* Main Content Container */}
-      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
+      {/* Floating stat cards */}
+     {/* <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.8 }}
+        className="absolute top-32 left-8 hidden xl:block z-20"
+      >
+        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xl">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
+              <TrendingUp className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-slate-900 dark:text-white">+247%</div>
+              <div className="text-xs text-slate-600 dark:text-slate-400">Marcações este mês</div>
+            </div>
+          </div>
+        </div>
+      </motion.div>*/}
 
-          {/* Left Column - Text Content */}
+     {/*<motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 2 }}
+        className="absolute top-48 right-8 hidden xl:block z-20"
+      >
+        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xl">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600">
+              <Calendar className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-slate-900 dark:text-white">2.3s</div>
+              <div className="text-xs text-slate-600 dark:text-slate-400">Tempo de resposta</div>
+            </div>
+          </div>
+        </div>
+      </motion.div> */}
+
+      {/* Main Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:py-32">
+        <div className="text-center mb-12">
+          
+          {/* Small badge */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 40 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 rounded-full border border-cyan-200 dark:border-slate-800 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-slate-900 dark:to-slate-900 px-4 py-1.5 text-xs font-medium text-cyan-700 dark:text-slate-400 mb-6"
           >
-            {/* Badge */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: isExpanded ? 1 : 0.8, opacity: isExpanded ? 1 : 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-600 to-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg mb-8"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-              </span>
-              Automação 100% com IA
-            </motion.div>
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
+            </span>
+            Automação inteligente para pequenos negócios
+          </motion.div>
 
-            {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 20 }}
-              transition={{ duration: 0.8, delay: 1 }}
-              className="text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-7xl lg:text-8xl mb-6"
-            >
-              Nunca mais perca{" "}
-              <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  uma marcação
-                </span>
-                <motion.svg
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: isExpanded ? 1 : 0, opacity: isExpanded ? 1 : 0 }}
-                  transition={{ duration: 1, delay: 1.5 }}
-                  className="absolute -bottom-2 left-0 w-full"
-                  height="12"
-                  viewBox="0 0 300 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <motion.path
-                    d="M1 8C50 3 150 1 299 8"
-                    stroke="url(#gradient)"
-                    strokeWidth="4"
-                    strokeLinecap="round"
-                  />
-                  <defs>
-                    <linearGradient id="gradient">
-                      <stop offset="0%" stopColor="#0891b2" />
-                      <stop offset="50%" stopColor="#2563eb" />
-                      <stop offset="100%" stopColor="#6366f1" />
-                    </linearGradient>
-                  </defs>
-                </motion.svg>
-              </span>
-            </motion.h1>
+          {/* Giant headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-[1.05]"
+          >
+            Nunca mais perca
+            <br />
+            <span className="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600 dark:from-slate-400 dark:to-slate-600 bg-clip-text text-transparent">
+              uma marcação
+            </span>
+          </motion.h1>
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 20 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              className="text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed lg:text-2xl"
-            >
-              O Krondle responde clientes, agenda marcações e gere o seu negócio{" "}
-              <span className="font-semibold text-slate-900 dark:text-white">
-                automaticamente via WhatsApp
-              </span>
-              . Disponível 24/7, sem intervenção humana.
-            </motion.p>
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+          >
+            Agendamento automático via WhatsApp, Instagram e Gmail.
+            <br />
+            Disponível 24/7, sem intervenção humana.
+          </motion.p>
 
-            {/* Benefits List */}
-            <motion.ul
-              initial={{ opacity: 0 }}
-              animate={{ opacity: isExpanded ? 1 : 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-              className="space-y-4 mb-10"
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="group border-2 border-slate-300 dark:border-slate-700 bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-100 px-8 py-6 text-base font-medium rounded-xl transition-all"
             >
-              {[
-                "Setup em 5 minutos, sem conhecimentos técnicos",
-                "IA que conversa como humano em português",
-                "Integração nativa com WhatsApp, Instagram e Gmail",
-              ].map((item, index) => (
-                <motion.li
-                  key={item}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -20 }}
-                  transition={{ duration: 0.5, delay: 1.6 + index * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="mt-1 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 p-1">
-                    <Check className="h-4 w-4 text-white" />
+              <Play className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+              Ver vídeo (2 min)
+            </Button>
+          </motion.div>
+
+        </div>
+
+        {/* DUAL MOCKUP: Desktop + Mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto items-center">
+          
+          {/* Mobile WhatsApp Mockup (LEFT) */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="lg:col-span-4 flex justify-center lg:justify-end"
+          >
+            <div className="relative bg-slate-900 dark:bg-slate-100 rounded-[3rem] p-2.5 shadow-2xl border-[3px] border-slate-800 dark:border-slate-300 w-72">
+              {/* Phone notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-3 bg-slate-900 dark:bg-slate-100 rounded-b-3xl z-10" />
+              
+              {/* Screen */}
+              <div className="relative bg-white dark:bg-slate-950 rounded-[2.5rem] overflow-hidden h-[580px] flex flex-col">
+                {/* WhatsApp Header */}
+                <div className="bg-gradient-to-r from-[#075E54] to-[#128C7E] px-4 py-3 flex items-center gap-3 flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-slate-700 dark:text-slate-300 text-lg">{item}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
+                  <div className="flex-1">
+                    <div className="text-white font-semibold text-sm">Barbearia Santos</div>
+                    <div className="text-green-200 text-xs">online</div>
+                  </div>
+                </div>
 
-            {/* CTAs */}
+                {/* WhatsApp Messages */}
+                <div className="flex-1 p-4 space-y-2 bg-[#ECE5DD] dark:bg-slate-900 overflow-y-auto">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1 }}
+                    className="flex justify-start"
+                  >
+                    <div className="bg-white dark:bg-slate-800 rounded-lg rounded-tl-none px-3 py-2 max-w-[80%] shadow-sm">
+                      <p className="text-xs text-slate-900 dark:text-slate-100">Boa tarde! 👋</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1.2 }}
+                    className="flex justify-end"
+                  >
+                    <div className="bg-[#DCF8C6] dark:bg-cyan-900 rounded-lg rounded-tr-none px-3 py-2 max-w-[80%] shadow-sm">
+                      <p className="text-xs text-slate-900 dark:text-white">Quero marcar corte!</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: 1.4 }}
+                    className="flex justify-start"
+                  >
+                    <div className="bg-white dark:bg-slate-800 rounded-lg rounded-tl-none px-3 py-2 max-w-[80%] shadow-sm">
+                      <p className="text-xs text-slate-900 dark:text-slate-100">Tenho 15h e 16h30. Qual prefere? 😊</p>
+                    </div>
+                  </motion.div>
+
+                  {/* Typing indicator */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 1.6 }}
+                    className="flex justify-end"
+                  >
+                    <div className="bg-[#DCF8C6] dark:bg-cyan-900 rounded-lg rounded-tr-none px-3 py-2 shadow-sm">
+                      <div className="flex gap-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
+                          className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600"
+                        />
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
+                          className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600"
+                        />
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
+                          className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-600"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* WhatsApp Keyboard */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 1.8 }}
+                  className="bg-[#F0F0F0] dark:bg-slate-800 px-3 py-2 flex items-center gap-2 flex-shrink-0 border-t border-slate-200 dark:border-slate-700"
+                >
+                  <button className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <svg className="w-5 h-5 text-slate-600 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </button>
+                  <div className="flex-1 bg-white dark:bg-slate-900 rounded-full px-4 py-2 text-xs text-slate-600 dark:text-slate-400">
+                    Escrever mensagem...
+                  </div>
+                  <button className="p-2 rounded-full bg-[#128C7E] hover:bg-[#075E54] transition-colors">
+                    <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                    </svg>
+                  </button>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Desktop Mockup (RIGHT) - ANALYTICS DASHBOARD */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="lg:col-span-8 relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-2xl">
+              {/* Browser header */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+                <div className="flex-1 flex justify-center">
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                    <svg className="w-3 h-3 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">app.krondle.com</span>
+                  </div>
+                </div>
+                <div className="w-20" />
+              </div>
+
+              {/* Dashboard ANALYTICS */}
+              <div className="p-6 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
+                
+                {/* TOP STATS */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1 }}
+                  className="grid grid-cols-3 gap-3 mb-6"
+                >
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600">
+                        <Clock className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">Setup</span>
+                    </div>
+                    <div className="text-2xl font-bold text-slate-900 dark:text-white">5 min</div>
+                  </div>
+                  
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600">
+                        <Zap className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">Disponível</span>
+                    </div>
+                    <div className="text-2xl font-bold text-slate-900 dark:text-white">24/7</div>
+                  </div>
+                  
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600">
+                        <Sparkles className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">Automático</span>
+                    </div>
+                    <div className="text-2xl font-bold text-slate-900 dark:text-white">100%</div>
+                  </div>
+                </motion.div>
+
+                {/* CHART SECTION */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm mb-4"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="text-sm font-semibold text-slate-900 dark:text-white">Marcações este mês</h3>
+                      <p className="text-xs text-slate-500 dark:text-slate-400">+32% vs mês anterior</p>
+                    </div>
+                    <div className="text-2xl font-bold text-slate-900 dark:text-white">247</div>
+                  </div>
+                  
+                  {/* Simple bar chart */}
+                  <div className="flex items-end justify-between h-24 gap-2">
+                    {[65, 45, 78, 56, 89, 72, 95].map((height, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ height: 0 }}
+                        animate={{ height: `${height}%` }}
+                        transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
+                        className="flex-1 bg-gradient-to-t from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 rounded-t"
+                      />
+                    ))}
+                  </div>
+                  <div className="flex justify-between mt-2">
+                    {['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'].map((day) => (
+                      <span key={day} className="text-xs text-slate-500 dark:text-slate-400">{day}</span>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* BOTTOM STATS */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.6 }}
+                  className="grid grid-cols-2 gap-3"
+                >
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 rounded-lg bg-gradient-to-br from-orange-500 to-red-600">
+                        <Users className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">Clientes ativos</span>
+                    </div>
+                    <div className="text-xl font-bold text-slate-900 dark:text-white">1,234</div>
+                    <div className="text-xs text-green-600 dark:text-green-400 mt-1">+12% este mês</div>
+                  </div>
+
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 rounded-lg bg-gradient-to-br from-green-500 to-teal-600">
+                        <DollarSign className="h-3 w-3 text-white" />
+                      </div>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">Receita</span>
+                    </div>
+                    <div className="text-xl font-bold text-slate-900 dark:text-white">3.458€</div>
+                    <div className="text-xs text-green-600 dark:text-green-400 mt-1">+18% este mês</div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Floating badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 20 }}
-              transition={{ duration: 0.8, delay: 2 }}
-              className="flex flex-col sm:flex-row gap-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 2 }}
+              className="absolute -top-4 right-4 md:right-8 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 dark:from-white dark:to-white px-4 py-2 text-xs font-bold text-white dark:text-slate-900 shadow-lg z-10"
             >
-              <Button
-                size="lg"
-                className="group bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white shadow-xl shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all px-8 py-7 text-lg"
-                onClick={() => window.dispatchEvent(new CustomEvent('openChat'))}
-              >
-                Agendar Reunião com a Equipa
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-slate-300 dark:border-slate-700 px-8 py-7 text-lg group hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-100"
-              >
-                <Play className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
-                Ver Vídeo (2 min)
-              </Button>
+              🤖 100% Automático
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Chat Demo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
-            animate={{
-              opacity: isExpanded ? 1 : 0,
-              scale: isExpanded ? 1 : 0.8,
-              rotateY: isExpanded ? 0 : -20
-            }}
-            transition={{ duration: 1, delay: 1.2, ease: [0.43, 0.13, 0.23, 0.96] }}
-            className="relative lg:pl-8"
-            style={{ perspective: '1000px' }}
-          >
-            {/* Chat Interface - ESTRATÉGIA HÍBRIDA */}
-            <motion.div
-              className="relative rounded-3xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 p-8 shadow-2xl border-2 border-slate-300 dark:border-slate-700 dark:border-l-4 dark:border-l-cyan-500"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-indigo-500/5 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-indigo-500/10 blur-xl" />
-
-              {/* Chat Header */}
-              <div className="relative flex items-center gap-3 mb-6 pb-4 border-b border-slate-300 dark:border-slate-700">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg">
-                  <Sparkles className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-900 dark:text-white text-lg">Krondle Bot</div>
-                  <div className="text-xs text-slate-600 dark:text-slate-400 flex items-center gap-1">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    Online agora
-                  </div>
-                </div>
-              </div>
-
-              {/* Messages */}
-              <div className="relative space-y-4">
-                {/* User message */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : 20 }}
-                  transition={{ duration: 0.5, delay: 2 }}
-                  className="flex justify-end"
-                >
-                  <div className="rounded-2xl rounded-tr-none bg-white dark:bg-slate-700 p-4 max-w-[85%] shadow-md border border-slate-200 dark:border-slate-600">
-                    <p className="text-sm text-slate-900 dark:text-slate-200">
-                      Olá! Quero marcar um corte para amanhã às 15h
-                    </p>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">14:23</span>
-                  </div>
-                </motion.div>
-
-                {/* Bot message */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -20 }}
-                  transition={{ duration: 0.5, delay: 2.3 }}
-                  className="flex justify-start"
-                >
-                  <div className="rounded-2xl rounded-tl-none bg-gradient-to-br from-cyan-600 to-blue-600 p-4 max-w-[85%] shadow-lg shadow-cyan-500/20">
-                    <p className="text-sm font-medium text-white">
-                      Perfeito! Tenho disponível às 15h e às 16h30. Qual prefere? 😊
-                    </p>
-                    <span className="text-xs text-cyan-100 mt-1 block">14:23</span>
-                  </div>
-                </motion.div>
-
-                {/* User message */}
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : 20 }}
-                  transition={{ duration: 0.5, delay: 2.6 }}
-                  className="flex justify-end"
-                >
-                  <div className="rounded-2xl rounded-tr-none bg-white dark:bg-slate-700 p-4 max-w-[85%] shadow-md border border-slate-200 dark:border-slate-600">
-                    <p className="text-sm text-slate-900 dark:text-slate-200">15h está ótimo!</p>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">14:24</span>
-                  </div>
-                </motion.div>
-
-                {/* Bot confirmation */}
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: isExpanded ? 1 : 0, x: isExpanded ? 0 : -20 }}
-                  transition={{ duration: 0.5, delay: 2.9 }}
-                  className="flex justify-start"
-                >
-                  <div className="rounded-2xl rounded-tl-none bg-gradient-to-br from-cyan-600 to-blue-600 p-4 max-w-[85%] shadow-lg shadow-cyan-500/20">
-                    <p className="text-sm font-medium text-white">
-                      ✅ Marcação confirmada para amanhã às 15h!
-                      <br />
-                      <br />
-                      Vai receber um lembrete 2h antes. Até amanhã! 👋
-                    </p>
-                    <span className="text-xs text-cyan-100 mt-1 block">14:24</span>
-                  </div>
-                </motion.div>
-              </div>
-
-              {/* Floating badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: isExpanded ? 1 : 0, scale: isExpanded ? 1 : 0.5 }}
-                transition={{ duration: 0.5, delay: 3.2 }}
-                className="absolute -top-4 -right-4 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 px-4 py-2 text-sm font-bold text-white shadow-lg"
-              >
-                🤖 100% Automático
-              </motion.div>
-            </motion.div>
-
-            {/* Floating stats - ESTRATÉGIA HÍBRIDA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 20 }}
-              transition={{ duration: 0.5, delay: 3.4 }}
-              className="absolute -bottom-6 -left-6 rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-2xl border-2 border-slate-300 dark:border-slate-700 dark:border-l-4 dark:border-l-blue-500 hidden lg:block"
-            >
-              <div className="text-4xl font-bold text-slate-900 dark:text-white mb-1">2.3s</div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">Tempo de resposta médio</div>
-            </motion.div>
-          </motion.div>
         </div>
       </div>
     </section>

@@ -1,38 +1,63 @@
 // apps/marketing/src/components/SocialProof.tsx
-import { Users, Calendar, Star } from "lucide-react";
+import { Users, Calendar, Clock } from "lucide-react";
+
+const stats = [
+  {
+    icon: Users,
+    value: "6",
+    label: "estudantes de IGE",
+    helper: "Projeto académico ISCTE 2025",
+  },
+  {
+    icon: Calendar,
+    value: "Q2 2026",
+    label: "lançamento beta",
+    helper: "Primeiras PMEs a testar o Krondle",
+  },
+  {
+    icon: Clock,
+    value: "24/7",
+    label: "assistente sempre ligado",
+    helper: "Marcações automáticas mesmo fora de horário",
+  },
+];
 
 export function SocialProof() {
   return (
-    <section className="border-y border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-6 py-16">
-      <div className="mx-auto max-w-7xl">
-        <p className="mb-12 text-center text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-          Projeto Académico ISCTE - Grupo 4
+    <section className="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-14">
+      <div className="mx-auto max-w-7xl space-y-8">
+        {/* Badge / título pequeno */}
+        <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+          Construído no ISCTE para PMEs portuguesas
         </p>
-        
+
+        {/* Linha de métricas */}
         <div className="grid gap-8 sm:grid-cols-3">
-          <div className="flex flex-col items-center text-center group">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 dark:shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
-              <Users className="h-8 w-8 text-white" />
-            </div>
-            <div className="text-4xl font-bold text-slate-900 dark:text-white">Em Beta</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400 mt-2">Lançamento Q1 2025</div>
-          </div>
+          {stats.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.label}
+                className="flex items-center sm:items-start gap-4 sm:justify-start justify-center text-center sm:text-left"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-50 dark:bg-cyan-900/30 border border-cyan-100 dark:border-cyan-800">
+                  <Icon className="h-6 w-6 text-cyan-600 dark:text-cyan-300" />
+                </div>
 
-          <div className="flex flex-col items-center text-center group">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 dark:shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
-              <Calendar className="h-8 w-8 text-white" />
-            </div>
-            <div className="text-4xl font-bold text-slate-900 dark:text-white">50%</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400 mt-2">Desconto Primeiros Clientes</div>
-          </div>
-
-          <div className="flex flex-col items-center text-center group">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 dark:shadow-cyan-500/20 group-hover:scale-110 transition-transform duration-300">
-              <Star className="h-8 w-8 text-white" />
-            </div>
-            <div className="text-4xl font-bold text-slate-900 dark:text-white">100%</div>
-            <div className="text-sm text-slate-600 dark:text-slate-400 mt-2">Automático & Inteligente</div>
-          </div>
+                <div>
+                  <div className="text-2xl font-bold text-slate-900 dark:text-white">
+                    {item.value}
+                  </div>
+                  <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    {item.label}
+                  </div>
+                  <div className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                    {item.helper}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

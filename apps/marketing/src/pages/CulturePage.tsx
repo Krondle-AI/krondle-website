@@ -4,7 +4,6 @@ import { CultureHero } from "../components/culture/CultureHero"
 import { CultureMission } from "../components/culture/CultureMission"
 import { CultureValues } from "../components/culture/CultureValues"
 import { CultureTeam } from "../components/culture/CultureTeam"
-import { CultureCTA } from "../components/culture/CultureCTA"
 
 export default function CulturePage() {
   return (
@@ -13,7 +12,6 @@ export default function CulturePage() {
       <CultureMission />
       <CultureValues />
       <CultureTeam />
-      <CultureCTA />
     </div>
   )
 }
