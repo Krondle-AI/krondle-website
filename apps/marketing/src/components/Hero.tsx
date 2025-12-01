@@ -28,9 +28,9 @@ export function Hero() {
         transition={{ duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] }}
       >
         {/* Gradient blobs */}
-        <div className="absolute top-1/4 -right-1/4 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 -left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -right-1/4 w-96 h-96 bg-cyan-500/30 dark:bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 -left-1/4 w-96 h-96 bg-blue-500/30 dark:bg-blue-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-indigo-500/20 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-indigo-500/10 rounded-full blur-3xl" />
       </motion.div>
 
       {/* Main Content Container */}
@@ -156,7 +156,7 @@ export function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 px-8 py-7 text-lg group hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="border-2 border-slate-300 dark:border-slate-700 px-8 py-7 text-lg group hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-slate-100"
               >
                 <Play className="mr-2 h-5 w-5 transition-transform group-hover:scale-110" />
                 Ver Vídeo (2 min)
@@ -176,23 +176,23 @@ export function Hero() {
             className="relative lg:pl-8"
             style={{ perspective: '1000px' }}
           >
-            {/* Chat Interface */}
+            {/* Chat Interface - ESTRATÉGIA HÍBRIDA */}
             <motion.div
-              className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-800 dark:to-slate-950 p-8 shadow-2xl border border-slate-700/50"
+              className="relative rounded-3xl bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 p-8 shadow-2xl border-2 border-slate-300 dark:border-slate-700 dark:border-l-4 dark:border-l-cyan-500"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-indigo-500/10 blur-xl" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/5 via-blue-500/5 to-indigo-500/5 dark:from-cyan-500/10 dark:via-blue-500/10 dark:to-indigo-500/10 blur-xl" />
 
               {/* Chat Header */}
-              <div className="relative flex items-center gap-3 mb-6 pb-4 border-b border-slate-700">
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+              <div className="relative flex items-center gap-3 mb-6 pb-4 border-b border-slate-300 dark:border-slate-700">
+                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg">
                   <Sparkles className="h-6 w-6 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white text-lg">Krondle Bot</div>
-                  <div className="text-xs text-slate-400 flex items-center gap-1">
+                  <div className="font-semibold text-slate-900 dark:text-white text-lg">Krondle Bot</div>
+                  <div className="text-xs text-slate-600 dark:text-slate-400 flex items-center gap-1">
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -211,11 +211,11 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 2 }}
                   className="flex justify-end"
                 >
-                  <div className="rounded-2xl rounded-tr-none bg-slate-700 p-4 max-w-[85%]">
-                    <p className="text-sm text-slate-200">
+                  <div className="rounded-2xl rounded-tr-none bg-white dark:bg-slate-700 p-4 max-w-[85%] shadow-md border border-slate-200 dark:border-slate-600">
+                    <p className="text-sm text-slate-900 dark:text-slate-200">
                       Olá! Quero marcar um corte para amanhã às 15h
                     </p>
-                    <span className="text-xs text-slate-400 mt-1 block">14:23</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">14:23</span>
                   </div>
                 </motion.div>
 
@@ -241,9 +241,9 @@ export function Hero() {
                   transition={{ duration: 0.5, delay: 2.6 }}
                   className="flex justify-end"
                 >
-                  <div className="rounded-2xl rounded-tr-none bg-slate-700 p-4 max-w-[85%]">
-                    <p className="text-sm text-slate-200">15h está ótimo!</p>
-                    <span className="text-xs text-slate-400 mt-1 block">14:24</span>
+                  <div className="rounded-2xl rounded-tr-none bg-white dark:bg-slate-700 p-4 max-w-[85%] shadow-md border border-slate-200 dark:border-slate-600">
+                    <p className="text-sm text-slate-900 dark:text-slate-200">15h está ótimo!</p>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">14:24</span>
                   </div>
                 </motion.div>
 
@@ -277,12 +277,12 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Floating stats - hidden on mobile */}
+            {/* Floating stats - ESTRATÉGIA HÍBRIDA */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: isExpanded ? 1 : 0, y: isExpanded ? 0 : 20 }}
               transition={{ duration: 0.5, delay: 3.4 }}
-              className="absolute -bottom-6 -left-6 rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-2xl border border-slate-200 dark:border-slate-700 hidden lg:block"
+              className="absolute -bottom-6 -left-6 rounded-2xl bg-white dark:bg-slate-800 p-6 shadow-2xl border-2 border-slate-300 dark:border-slate-700 dark:border-l-4 dark:border-l-blue-500 hidden lg:block"
             >
               <div className="text-4xl font-bold text-slate-900 dark:text-white mb-1">2.3s</div>
               <div className="text-sm text-slate-600 dark:text-slate-400">Tempo de resposta médio</div>

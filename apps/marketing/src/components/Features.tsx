@@ -7,21 +7,25 @@ const features = [
     icon: Bot,
     title: "IA Conversacional",
     description: "Respostas naturais que parecem humanas. Seus clientes nem vão perceber que é automático.",
+    borderColor: "dark:border-l-cyan-500"
   },
   {
     icon: Clock,
     title: "Disponível 24/7",
     description: "Nunca mais perca uma marcação. O Krondle trabalha enquanto você descansa.",
+    borderColor: "dark:border-l-blue-500"
   },
   {
     icon: TrendingUp,
     title: "Analytics Integrados",
     description: "Dashboards com métricas de faturação, clientes recorrentes e períodos de maior procura.",
+    borderColor: "dark:border-l-indigo-500"
   },
   {
     icon: Zap,
     title: "Setup em 5 Minutos",
     description: "Configure horários, serviços e colaboradores. Sem complicações técnicas.",
+    borderColor: "dark:border-l-purple-500"
   },
 ];
 
@@ -42,10 +46,10 @@ export function Features() {
           {features.map((feature) => (
             <Card 
               key={feature.title} 
-              className="border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-xl transition-shadow"
+              className={`border-2 border-slate-200 dark:border-slate-700 dark:border-l-4 ${feature.borderColor} bg-white dark:bg-slate-800 hover:shadow-xl hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300`}
             >
               <CardContent className="p-8">
-                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/25 dark:shadow-cyan-500/20 hover:scale-110 transition-transform duration-300">
                   <feature.icon className="h-7 w-7 text-white" />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold text-slate-900 dark:text-white">

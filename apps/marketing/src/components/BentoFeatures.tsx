@@ -39,7 +39,7 @@ export function BentoFeatures() {
           </motion.p>
         </div>
 
-        {/* Bento Grid - NOVO LAYOUT */}
+        {/* Bento Grid - ESTRATÉGIA HÍBRIDA */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
           {/* Row 1: IA Bot (span 8) + 24/7 (span 4) */}
@@ -50,7 +50,8 @@ export function BentoFeatures() {
             viewport={{ once: true }}
             className="md:col-span-8 group"
           >
-            <div className="relative h-full rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-8 lg:p-12 border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-500 transition-all duration-300 overflow-hidden">
+            {/* Light: Gradiente colorido | Dark: Slate com border cyan */}
+            <div className="relative h-full rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-850 p-8 lg:p-12 border-2 border-slate-200 dark:border-slate-700 dark:border-l-4 dark:border-l-cyan-500 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all duration-300 overflow-hidden">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-500/5 dark:from-cyan-500/10 dark:to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
@@ -112,7 +113,8 @@ export function BentoFeatures() {
             viewport={{ once: true }}
             className="md:col-span-4 group"
           >
-            <div className="h-full rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 p-8 relative overflow-hidden hover:scale-105 transition-transform duration-300">
+            {/* Mantém gradiente colorido em ambos os modos */}
+            <div className="h-full rounded-3xl bg-gradient-to-br from-blue-500 to-indigo-600 p-8 relative overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
               
               <div className="relative z-10">
@@ -135,7 +137,8 @@ export function BentoFeatures() {
             viewport={{ once: true }}
             className="md:col-span-4 group"
           >
-            <div className="h-full rounded-3xl bg-gradient-to-br from-purple-500 to-pink-600 p-8 relative overflow-hidden hover:scale-105 transition-transform duration-300">
+            {/* Mantém gradiente colorido em ambos os modos */}
+            <div className="h-full rounded-3xl bg-gradient-to-br from-purple-500 to-pink-600 p-8 relative overflow-hidden hover:scale-105 transition-transform duration-300 shadow-lg">
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
               
               <div className="relative z-10">
@@ -157,7 +160,8 @@ export function BentoFeatures() {
             viewport={{ once: true }}
             className="md:col-span-8 group"
           >
-            <div className="relative h-full rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-8 lg:p-12 border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-500 transition-all duration-300 overflow-hidden">
+            {/* Light: Gradiente colorido | Dark: Slate com border indigo */}
+            <div className="relative h-full rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-850 p-8 lg:p-12 border-2 border-slate-200 dark:border-slate-700 dark:border-l-4 dark:border-l-indigo-500 hover:border-indigo-500 dark:hover:border-indigo-400 transition-all duration-300 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 dark:from-indigo-500/10 dark:to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               <div className="relative z-10">
@@ -179,7 +183,7 @@ export function BentoFeatures() {
                     <div className="text-sm text-slate-600 dark:text-slate-400">Marcações</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-                    <div className="text-2xl font-bold text-green-600">+40%</div>
+                    <div className="text-2xl font-bold text-green-600 dark:text-green-400">+40%</div>
                     <div className="text-sm text-slate-600 dark:text-slate-400">Crescimento</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
