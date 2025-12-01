@@ -6,7 +6,7 @@ import { Card } from "@krondle/common/components/ui/card"
 
 export const HowItWorksDemo = () => {
   return (
-    <section className="py-20 px-4 bg-slate-50">
+    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-800">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -15,10 +15,10 @@ export const HowItWorksDemo = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
             Veja em ação
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Um exemplo real de como o Krondle gere uma marcação do início ao fim
           </p>
         </motion.div>
@@ -31,15 +31,15 @@ export const HowItWorksDemo = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="p-6 border-2 shadow-xl">
+            <Card className="p-6 border-2 border-slate-200 dark:border-slate-700 shadow-xl bg-white dark:bg-slate-800">
               {/* WhatsApp header */}
-              <div className="flex items-center gap-3 pb-4 border-b mb-6">
+              <div className="flex items-center gap-3 pb-4 border-b border-slate-200 dark:border-slate-700 mb-6">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
                   <Bot className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-slate-900">Barbearia Krondle</h4>
-                  <div className="flex items-center gap-1.5 text-xs text-green-600">
+                  <h4 className="font-semibold text-slate-900 dark:text-slate-50">Barbearia Krondle</h4>
+                  <div className="flex items-center gap-1.5 text-xs text-green-600 dark:text-green-400">
                     <div className="w-2 h-2 rounded-full bg-green-500" />
                     <span>Online</span>
                   </div>
@@ -57,12 +57,12 @@ export const HowItWorksDemo = () => {
                   className="flex gap-2"
                 >
                   <div className="flex-1">
-                    <div className="bg-slate-100 rounded-2xl rounded-tl-sm p-4">
-                      <p className="text-slate-800">
+                    <div className="bg-slate-100 dark:bg-slate-700 rounded-2xl rounded-tl-sm p-4">
+                      <p className="text-slate-800 dark:text-slate-200">
                         Olá! Queria marcar um corte de cabelo para terça-feira à tarde 💈
                       </p>
                     </div>
-                    <span className="text-xs text-slate-500 ml-2 mt-1">14:23</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 mt-1">14:23</span>
                   </div>
                 </motion.div>
 
@@ -72,12 +72,12 @@ export const HowItWorksDemo = () => {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6 }}
-                  className="flex items-center gap-2 text-slate-500 text-sm"
+                  className="flex items-center gap-2 text-slate-500 dark:text-slate-400 text-sm"
                 >
                   <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                    <div className="w-2 h-2 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                    <div className="w-2 h-2 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                    <div className="w-2 h-2 bg-slate-400 dark:bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                   </div>
                   <span>Krondle está a escrever...</span>
                 </motion.div>
@@ -96,7 +96,7 @@ export const HowItWorksDemo = () => {
                         Olá! 😊 Tenho disponibilidade na terça-feira às <strong>15h</strong> e às <strong>17h</strong>. Qual prefere?
                       </p>
                     </div>
-                    <span className="text-xs text-slate-500 mr-2 mt-1">14:23</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 mr-2 mt-1">14:23</span>
                   </div>
                 </motion.div>
 
@@ -109,12 +109,12 @@ export const HowItWorksDemo = () => {
                   className="flex gap-2"
                 >
                   <div className="flex-1">
-                    <div className="bg-slate-100 rounded-2xl rounded-tl-sm p-4">
-                      <p className="text-slate-800">
+                    <div className="bg-slate-100 dark:bg-slate-700 rounded-2xl rounded-tl-sm p-4">
+                      <p className="text-slate-800 dark:text-slate-200">
                         Perfeito! Confirmo às 15h 👍
                       </p>
                     </div>
-                    <span className="text-xs text-slate-500 ml-2 mt-1">14:24</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 mt-1">14:24</span>
                   </div>
                 </motion.div>
 
@@ -137,7 +137,7 @@ export const HowItWorksDemo = () => {
                         <p>🔔 Enviarei um lembrete 1 hora antes</p>
                       </div>
                     </div>
-                    <span className="text-xs text-slate-500 mr-2 mt-1">14:24</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 mr-2 mt-1">14:24</span>
                   </div>
                 </motion.div>
               </div>
@@ -148,14 +148,14 @@ export const HowItWorksDemo = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 1.8 }}
-                className="mt-6 pt-6 border-t"
+                className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700"
               >
                 <div className="flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-2 text-green-600">
+                  <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
                     <CheckCircle2 className="w-4 h-4" />
                     <span className="font-medium">Processado automaticamente</span>
                   </div>
-                  <span className="text-slate-500">20 segundos</span>
+                  <span className="text-slate-500 dark:text-slate-400">20 segundos</span>
                 </div>
               </motion.div>
             </Card>
@@ -169,10 +169,10 @@ export const HowItWorksDemo = () => {
             className="space-y-6"
           >
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-4">
                 O que aconteceu nos bastidores?
               </h3>
-              <p className="text-slate-600 mb-6">
+              <p className="text-slate-600 dark:text-slate-300 mb-6">
                 Enquanto a conversa decorria naturalmente, o Krondle executou automaticamente:
               </p>
             </div>
@@ -217,18 +217,18 @@ export const HowItWorksDemo = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1 }}
                 >
-                  <Card className="p-4 border-2 hover:border-cyan-500 transition-colors">
+                  <Card className="p-4 border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-500 transition-colors bg-white dark:bg-slate-800">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <div className="w-6 h-6 rounded-full bg-cyan-100 text-cyan-600 text-xs font-bold flex items-center justify-center">
+                          <div className="w-6 h-6 rounded-full bg-cyan-100 dark:bg-cyan-900 text-cyan-600 dark:text-cyan-400 text-xs font-bold flex items-center justify-center">
                             {index + 1}
                           </div>
-                          <h4 className="font-semibold text-slate-900">{item.step}</h4>
+                          <h4 className="font-semibold text-slate-900 dark:text-slate-50">{item.step}</h4>
                         </div>
-                        <p className="text-sm text-slate-600 ml-8">{item.description}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 ml-8">{item.description}</p>
                       </div>
-                      <span className="text-xs font-mono text-slate-500 whitespace-nowrap">
+                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400 whitespace-nowrap">
                         {item.time}
                       </span>
                     </div>
@@ -238,12 +238,12 @@ export const HowItWorksDemo = () => {
             </div>
 
             <div className="pt-4">
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 border-2 border-green-200 dark:border-green-800 rounded-xl p-4">
                 <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0" />
                   <div>
-                    <p className="font-semibold text-green-900">Tempo total: ~25 segundos</p>
-                    <p className="text-sm text-green-700">100% automático, 0% intervenção manual</p>
+                    <p className="font-semibold text-green-900 dark:text-green-300">Tempo total: ~25 segundos</p>
+                    <p className="text-sm text-green-700 dark:text-green-400">100% automático, 0% intervenção manual</p>
                   </div>
                 </div>
               </div>

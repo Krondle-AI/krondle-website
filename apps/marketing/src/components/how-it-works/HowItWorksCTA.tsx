@@ -5,7 +5,7 @@ import { ArrowRight, Rocket } from "lucide-react";
 
 export function HowItWorksCTA() {
     return (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-white dark:bg-slate-900">
             <div className="max-w-6xl mx-auto">
                 {/* Card principal com gradiente */}
                 <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-cyan-500 via-blue-500 to-blue-600 text-white shadow-2xl">

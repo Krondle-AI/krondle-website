@@ -45,7 +45,7 @@ export const HowItWorksFeatures = () => {
   ]
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -54,10 +54,10 @@ export const HowItWorksFeatures = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
             Porque escolher o Krondle?
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             Mais do que agendamentos. Uma solução completa para gerir o seu negócio.
           </p>
         </motion.div>
@@ -72,14 +72,14 @@ export const HowItWorksFeatures = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="p-6 border-2 hover:border-cyan-500 hover:shadow-xl transition-all duration-300 h-full group">
+              <Card className="p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-500 hover:shadow-xl transition-all duration-300 h-full group bg-white dark:bg-slate-800">
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 dark:text-slate-300">
                   {feature.description}
                 </p>
               </Card>

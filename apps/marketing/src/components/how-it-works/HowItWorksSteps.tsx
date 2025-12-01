@@ -73,7 +73,7 @@ export const HowItWorksSteps = () => {
   ]
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-white dark:bg-slate-900">
       <div className="max-w-5xl mx-auto">
         {/* Steps */}
         <div className="space-y-12">
@@ -88,7 +88,7 @@ export const HowItWorksSteps = () => {
             >
               {/* Connecting line */}
               {index < steps.length - 1 && (
-                <div className="absolute left-8 md:left-14 top-24 w-0.5 h-full bg-gradient-to-b from-slate-200 to-transparent -z-10" />
+                <div className="absolute left-8 md:left-14 top-24 w-0.5 h-full bg-gradient-to-b from-slate-200 dark:from-slate-700 to-transparent -z-10" />
               )}
 
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
@@ -96,7 +96,7 @@ export const HowItWorksSteps = () => {
                 <div className="flex-shrink-0">
                   <div className={`relative w-16 h-16 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
                     <step.icon className="w-8 h-8 md:w-12 md:h-12 text-white" />
-                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center text-sm font-bold text-slate-900 shadow-lg border-2 border-slate-100">
+                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center text-sm font-bold text-slate-900 dark:text-slate-50 shadow-lg border-2 border-slate-100 dark:border-slate-700">
                       {step.number}
                     </div>
                   </div>
@@ -104,26 +104,26 @@ export const HowItWorksSteps = () => {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <Card className="p-6 md:p-8 border-2 hover:border-cyan-500 hover:shadow-xl transition-all duration-300">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+                  <Card className="p-6 md:p-8 border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-500 hover:shadow-xl transition-all duration-300 bg-white dark:bg-slate-800">
+                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-50 mb-3">
                       {step.title}
                     </h3>
-                    <p className="text-lg text-slate-600 mb-6">
+                    <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
                       {step.description}
                     </p>
 
                     {/* Details */}
-                    <div className={`space-y-3 ${step.example ? 'bg-slate-50 rounded-xl p-4' : ''}`}>
+                    <div className={`space-y-3 ${step.example ? 'bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4' : ''}`}>
                       {step.details.map((detail, idx) => (
                         <div key={idx} className="flex items-start gap-3">
                           {step.example ? (
-                            <div className="text-slate-700 italic">
+                            <div className="text-slate-700 dark:text-slate-200 italic">
                               💬 {detail}
                             </div>
                           ) : (
                             <>
                               <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${step.color} mt-2`} />
-                              <span className="text-slate-700">{detail}</span>
+                              <span className="text-slate-700 dark:text-slate-300">{detail}</span>
                             </>
                           )}
                         </div>
@@ -143,9 +143,9 @@ export const HowItWorksSteps = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-50 to-blue-50 border-2 border-cyan-200 rounded-full">
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-950 dark:to-blue-950 border-2 border-cyan-200 dark:border-cyan-800 rounded-full">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            <span className="text-sm font-semibold text-slate-700">
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
               Tempo total: ~1 minuto por marcação
             </span>
           </div>
