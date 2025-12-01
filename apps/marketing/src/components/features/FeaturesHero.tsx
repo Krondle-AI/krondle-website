@@ -25,7 +25,7 @@ export const FeaturesHero = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-950 border border-cyan-200 dark:border-cyan-800 mb-6">
             <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
             <span className="text-sm font-medium text-cyan-700 dark:text-cyan-300">
-              Conectando o seu negócio ao amanhã
+              Onde o futuro dos negócios começa
             </span>
           </div>
 

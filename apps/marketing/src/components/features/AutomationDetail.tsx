@@ -67,7 +67,7 @@ export const AutomationDetail = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900 flex items-center justify-center flex-shrink-0">
+                {/*<div className="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900 flex items-center justify-center flex-shrink-0">
                   <Bell className="w-5 h-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export const AutomationDetail = () => {
                   <p className="text-slate-600 dark:text-slate-300 text-sm">
                     Envia lembretes antes da marcação para reduzir faltas.
                   </p>
-                </div>
+                </div>*/}
               </div>
             </div>
           </motion.div>
