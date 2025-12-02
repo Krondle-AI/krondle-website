@@ -51,7 +51,11 @@ const values: Value[] = [
   }
 ]
 
-export function CultureValues() {
+interface CultureValuesProps {
+  variant?: "gradient" | "default";
+}
+
+export function CultureValues({ variant = "default" }: CultureValuesProps) {
   return (
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">

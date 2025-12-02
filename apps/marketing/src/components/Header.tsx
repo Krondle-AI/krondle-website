@@ -17,14 +17,18 @@ export function Header({ openChat }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        {/* LOGO GRANDE */}
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
-              Krondle
-            </span>
+            <img 
+              src="/logos/krondle_fname_clear.png" 
+              alt="Krondle"
+              className="h-20 object-contain"
+            />
           </Link>
         </div>
 
+        {/* Mobile Menu Button */}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -50,10 +54,11 @@ export function Header({ openChat }: HeaderProps) {
             FAQ
           </Link>
           <Link to="/culture" className="text-sm font-semibold hover:text-primary transition-colors">
-            Culture
+            Cultura
           </Link>
         </div>
 
+        {/* Desktop Actions */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4 lg:items-center">
           <Button
             variant="ghost"

@@ -5,7 +5,11 @@
 import { motion } from "framer-motion"
 import { AlertCircle, Lightbulb, Rocket, TrendingUp } from "lucide-react"
 
-export function CultureMission() {
+interface CultureMissionProps {
+  variant?: "gradient" | "default";
+}
+
+export function CultureMission({ variant = "default" }: CultureMissionProps) {
   const timeline = [
     {
       icon: AlertCircle,

@@ -23,7 +23,7 @@ export interface QuickReply {
 
 export interface ChatStep {
   id: string
-  botMessage: string
+  botMessage: string | ((context: ConversationContext) => string)
   quickReplies?: QuickReply[]
   inputType?: 'text' | 'email' | 'date' | 'time'
   nextStep?: string

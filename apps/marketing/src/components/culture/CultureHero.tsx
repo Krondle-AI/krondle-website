@@ -10,11 +10,10 @@ export function CultureHero() {
   return (
     <section className="relative py-32 px-4 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
-      
-      {/* Animated shapes */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-cyan-200/30 dark:bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-200/30 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-700" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-40 right-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl" />
+      </div>
 
       <div className="relative max-w-5xl mx-auto text-center">
         {/* Badge */}

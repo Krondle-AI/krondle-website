@@ -1,6 +1,6 @@
 // apps/marketing/src/lib/chat-flow.ts
 
-import { ChatStep } from '@/types/chat'
+import { ChatStep, ConversationContext } from '../types/chat'
 
 export const chatFlow: Record<string, ChatStep> = {
   greeting: {
@@ -36,7 +36,8 @@ export const chatFlow: Record<string, ChatStep> = {
   
   ask_email: {
     id: 'ask_email',
-    botMessage: (context: any) => `Prazer em conhecê-lo, ${context.userData.name}! 👋\n\nQual é o seu email?`,
+    botMessage: (context: ConversationContext) =>
+      `Prazer em conhecê-lo, ${context.userData.name}! 👋\n\nQual é o seu email?`,
     inputType: 'email',
     nextStep: 'ask_company',
     validate: (input: string) => {
@@ -95,7 +96,7 @@ export const chatFlow: Record<string, ChatStep> = {
   
   confirmation: {
     id: 'confirmation',
-    botMessage: (context: any) => {
+    botMessage: (context: ConversationContext) => {
       const { name, email, company, businessType, preferredDate, preferredTime } = context.userData
       return `✅ Perfeito, ${name}!\n\n📋 Resumo da marcação:\n• Empresa: ${company}\n• Tipo: ${businessType}\n• Dia: ${preferredDate}\n• Hora: ${preferredTime}\n\n📧 Enviámos uma confirmação para ${email} com o link da reunião Zoom.\n\n🎉 Mal podemos esperar para mostrar o Krondle em ação!`
     },
@@ -138,9 +139,9 @@ export function getNextStep(currentStepId: string, userInput?: string): string {
   return currentStep.nextStep || 'end'
 }
 
-export function getBotMessage(stepId: string, context: any): string {
+export function getBotMessage(stepId: string, context: ConversationContext): string {
   const step = chatFlow[stepId]
-  if (!step) return chatFlow.fallback.botMessage
+  if (!step) return chatFlow.fallback.botMessage as string
   
   if (typeof step.botMessage === 'function') {
     return step.botMessage(context)

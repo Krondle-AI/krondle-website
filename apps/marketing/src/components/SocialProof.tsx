@@ -22,9 +22,13 @@ const stats = [
   },
 ];
 
-export function SocialProof() {
+interface SocialProofProps {
+  variant?: "gradient" | "default";
+}
+
+export function SocialProof({ variant = "default" }: SocialProofProps) {
   return (
-    <section className="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-14">
+    <section className="/*border-y border-slate-200 dark:border-slate-800*/ bg-white dark:bg-slate-900 px-6 py-14">
       <div className="mx-auto max-w-7xl space-y-8">
         {/* Badge / título pequeno */}
         <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
