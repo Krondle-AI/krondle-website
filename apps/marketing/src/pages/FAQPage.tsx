@@ -3,6 +3,8 @@
 import { FAQHero } from "../components/faq/FAQHero"
 import { FAQCategory } from "../components/faq/FAQCategory"
 import { FAQCTA } from "../components/faq/FAQCTA"
+import { SectionDivider } from "../components/Sectiondivider";
+
 import {
     Bot,
     CreditCard,
@@ -12,6 +14,7 @@ import {
 } from "lucide-react"
 
 export default function FAQPage() {
+    const handleOpenChat = () => window.dispatchEvent(new CustomEvent("openChat"))
     // 1️⃣ GERAL - Sobre o Krondle (CYAN/BLUE)
     const generalFAQs = [
         {
@@ -147,8 +150,9 @@ export default function FAQPage() {
     return (
         <div className="min-h-screen">
             <FAQHero />
+            <SectionDivider variant="gradient" padding="compact" />
 
-            <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <section className="pt-20 pb-10 px-4 bg-white dark:bg-slate-900">
                 <div className="max-w-5xl mx-auto">
 
                     <FAQCategory
@@ -202,8 +206,8 @@ export default function FAQPage() {
                     />
 
                 </div>
+                <FAQCTA openChat={handleOpenChat} />
             </section>
-            <FAQCTA />
         </div>
     )
 }

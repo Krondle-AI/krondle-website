@@ -51,7 +51,7 @@ export function FAQAccordion({
     <div className="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full px-6 py-5 flex items-start justify-between gap-4 text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group"
+        className="w-full px-6 py-5 flex items-start justify-between gap-4 text-left hover:bg-white dark:hover:bg-slate-800/50 transition-colors group"
       >
         <h3 className={cn(
           "text-lg font-semibold text-slate-900 dark:text-slate-50 pr-8 transition-colors",

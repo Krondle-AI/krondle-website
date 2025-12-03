@@ -6,7 +6,7 @@ import { Card } from "@krondle/common/components/ui/card"
 
 export const AutomationDetail = () => {
   return (
-    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+    <section className="py-20 px-4 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Explanation */}

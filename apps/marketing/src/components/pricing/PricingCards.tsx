@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import { Check, Sparkles } from "lucide-react"
 import { Button } from "@krondle/common/components/ui/button"
 import { Card } from "@krondle/common/components/ui/card"
-import { Link } from "react-router-dom"
 
 interface PricingCardsProps {
   billingCycle: "monthly" | "yearly"
@@ -113,7 +112,7 @@ export const PricingCards = ({ billingCycle }: PricingCardsProps) => {
                     {plan.description}
                   </p>
 
-                  {/* Price */}
+                  {/* Price - COM TOTAL ANUAL */}
                   <div className="mb-6">
                     <div className="flex items-baseline gap-2">
                       <span className="text-5xl font-bold text-slate-900 dark:text-white">
@@ -121,9 +120,20 @@ export const PricingCards = ({ billingCycle }: PricingCardsProps) => {
                       </span>
                       <span className="text-slate-600 dark:text-slate-300">/mês</span>
                     </div>
-                    {billingCycle === "yearly" && (
-                      <p className="text-sm text-green-600 dark:text-green-400 font-medium mt-2">
-                        Poupa {(plan.monthlyPrice - plan.yearlyPrice) * 12}€/ano
+                    
+                    {/* PREÇO ANUAL TOTAL - SEMPRE VISÍVEL */}
+                    {billingCycle === "yearly" ? (
+                      <div className="mt-3 space-y-1">
+                        <p className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                          {plan.yearlyPrice * 12}€ por ano
+                        </p>
+                        <p className="text-sm text-green-600 dark:text-green-400 font-semibold">
+                          Poupa {(plan.monthlyPrice - plan.yearlyPrice) * 12}€/ano
+                        </p>
+                      </div>
+                    ) : (
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                        {plan.monthlyPrice * 12}€ por ano
                       </p>
                     )}
                   </div>

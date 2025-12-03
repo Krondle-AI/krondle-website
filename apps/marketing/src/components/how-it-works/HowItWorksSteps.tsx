@@ -194,7 +194,7 @@ export const HowItWorksSteps = () => {
               }}
               className="absolute inset-0"
             >
-              <Card className="p-8 md:p-10 border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-500 shadow-2xl bg-white dark:bg-slate-800">
+              <Card className="p-8 md:p-10 border-2 border-slate-200 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-500 shadow-lg bg-white dark:bg-slate-800">
                 {/* Header */}
                 <div className="flex items-start gap-6 mb-6">
                   {/* Large Icon */}

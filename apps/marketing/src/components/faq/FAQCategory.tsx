@@ -18,7 +18,7 @@ interface FAQCategoryProps {
   items: FAQItem[]
   delay?: number
   gradient: string // Ex: "from-cyan-500 to-blue-600"
-  accentColor: string // Ex: "cyan"
+  accentColor: "cyan" | "blue" | "purple" | "green" | "orange" // Type-safe
 }
 
 export function FAQCategory({ 
@@ -38,7 +38,7 @@ export function FAQCategory({
       transition={{ delay }}
       className="mb-16"
     >
-      {/* Category Header - MELHORADO */}
+      {/* Category Header */}
       <div className="relative mb-8">
         {/* Background Card */}
         <div className={`relative overflow-hidden rounded-3xl bg-gradient-to-r ${gradient} p-8 shadow-xl`}>
@@ -70,25 +70,16 @@ export function FAQCategory({
         </div>
       </div>
 
-      {/* Questions */}
+      {/* Questions - COM COR DA CATEGORIA */}
       <div className="space-y-3">
         {items.map((item, index) => (
-          <div 
+          <FAQAccordion
             key={index}
-            className={`
-              rounded-2xl border-2 border-${accentColor}-100 dark:border-${accentColor}-900/30
-              bg-white dark:bg-slate-800 
-              hover:border-${accentColor}-300 dark:hover:border-${accentColor}-700
-              transition-all hover:shadow-lg
-            `}
-          >
-            <FAQAccordion
-              question={item.question}
-              answer={item.answer}
-              defaultOpen={index === 0}
-              accentColor={accentColor}
-            />
-          </div>
+            question={item.question}
+            answer={item.answer}
+            defaultOpen={index === 0}
+            accentColor={accentColor}
+          />
         ))}
       </div>
     </motion.div>

@@ -5,12 +5,16 @@ import { motion } from "framer-motion";
 
 interface SectionDividerProps {
   variant?: "default" | "gradient" | "dots";
+  padding?: "normal" | "compact";
 }
 
-export function SectionDivider({ variant = "gradient" }: SectionDividerProps) {
+export function SectionDivider({ variant = "gradient", padding = "normal" }: SectionDividerProps) {
+  const paddingClasses = padding === "compact" ? "py-8" : "py-16";
+  const dotsPaddingClasses = padding === "compact" ? "py-8" : "py-12";
+
   if (variant === "gradient") {
     return (
-      <div className="relative py-16 overflow-hidden">
+      <div className={`relative ${paddingClasses} overflow-hidden`}>
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-900" />
         
@@ -83,7 +87,7 @@ export function SectionDivider({ variant = "gradient" }: SectionDividerProps) {
 
   if (variant === "dots") {
     return (
-      <div className="relative py-12">
+      <div className={`relative ${dotsPaddingClasses}`}>
         <div className="flex items-center justify-center gap-2">
           {[0, 1, 2].map((i) => (
             <motion.div
@@ -101,7 +105,7 @@ export function SectionDivider({ variant = "gradient" }: SectionDividerProps) {
   }
 
   return (
-    <div className="relative py-16">
+    <div className={`relative ${paddingClasses}`}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ scaleX: 0 }}
