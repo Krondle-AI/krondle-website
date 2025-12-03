@@ -25,8 +25,8 @@ const team: TeamMember[] = [
     initials: "AC",
     role: "Data & AI Specialist",
     description: "Especialista em IA e análise de dados. Responsável pela inteligência do Krondle.",
-    gradient: "from-cyan-500 to-blue-600",
-    color: "cyan-600 dark:text-cyan-400",
+    gradient: "from-green-500 to-emerald-600",
+    color: "green-600 dark:text-green-400",
     photo: "/team/Cartaxo.png",
     linkedin: "https://www.linkedin.com/in/afonso-cartaxo-a43555295",
     objectPosition: "center center",
@@ -73,8 +73,8 @@ const team: TeamMember[] = [
     initials: "MR",
     role: "Backend Developer & System Architect",
     description: "Arquitetura de sistemas e backend. A espinha dorsal técnica do Krondle.",
-    gradient: "from-green-500 to-emerald-600",
-    color: "green-600 dark:text-green-400",
+    gradient: "from-cyan-500 to-blue-600",
+    color: "cyan-600 dark:text-cyan-400",
     photo: "/team/Miguel.jpg",
     linkedin: "https://www.linkedin.com/in/miguel-ribeiro/",
     objectPosition: "center 35%",
@@ -190,7 +190,7 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
 
 export function CultureTeam() {
   return (
-    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+    <section className="py-20 px-4 dark:bg-slate-900">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
