@@ -11,9 +11,9 @@ export default function CulturePage() {
     <div className="min-h-screen">
       <CultureHero />
       <SectionDivider variant="gradient" />
-      <CultureMission variant="gradient"/>
+      <CultureMission />
       <SectionDivider variant="gradient" />
-      <CultureValues variant="gradient"/>
+      <CultureValues />
       <SectionDivider variant="gradient" />
       <CultureTeam />
     </div>

@@ -15,14 +15,17 @@ export function FAQHero() {
       </div>
 
       <div className="relative max-w-4xl mx-auto text-center">
-        {/* Icon */}
+        {/* Badge - "Simples e automático" */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 mb-8 shadow-xl"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-950/50 border border-cyan-200 dark:border-cyan-800 mb-6"
         >
-          <HelpCircle className="w-10 h-10 text-white" />
+          <HelpCircle className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+          <span className="text-sm font-medium text-cyan-700 dark:text-cyan-300">
+            Simples e automático
+          </span>
         </motion.div>
 
         {/* Title */}
