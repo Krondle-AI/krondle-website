@@ -8,7 +8,7 @@ import { Button } from "@krondle/common/components/ui/button"
 
 export function CultureHero() {
   return (
-    <section className="relative py-32 px-4 overflow-hidden">
+    <section className="relative pt-24 pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-28 px-4 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-400/20 dark:bg-cyan-500/10 rounded-full blur-3xl" />

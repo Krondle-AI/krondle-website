@@ -218,60 +218,75 @@ export const HowItWorksSteps = () => {
                 {/* Content */}
                 <div className="mt-8">
                   {/* WhatsApp Messages - BACKGROUND MELHORADO */}
-                  {currentStep.isChat && currentStep.messages && (
-                    <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 dark:from-emerald-500/20 dark:to-teal-500/20 rounded-2xl p-6 mb-6 border border-emerald-200/20 dark:border-emerald-500/30">
-                      {currentStep.messages.map((msg, idx) => (
-                        <motion.div
-                          key={idx}
-                          initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          transition={{ delay: 0.3 }}
-                          className={`flex ${msg.from === 'client' ? 'justify-end' : 'justify-start'} mb-3`}
-                        >
-                          <div className={`
-                            max-w-md px-5 py-4 rounded-2xl shadow-md
-                            ${msg.from === 'client' 
-                              ? 'bg-cyan-500 text-white rounded-br-none' 
-                              : 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 rounded-bl-none'
-                            }
-                          `}>
-                            <div className="flex items-start gap-3">
-                              <span className="text-3xl">{msg.from === 'client' ? '👤' : '🤖'}</span>
-                              <div>
-                                <p className="leading-relaxed">{msg.text}</p>
-                                <span className={`text-xs mt-2 block ${msg.from === 'client' ? 'text-cyan-100' : 'text-slate-500 dark:text-slate-400'}`}>
-                                  {msg.time}
-                                </span>
+                  <AnimatePresence mode="wait">
+                    {currentStep.isChat && currentStep.messages && (
+                      <motion.div
+                        key={`chat-${currentStep.number}`}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -30 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 dark:from-emerald-500/20 dark:to-teal-500/20 rounded-2xl p-6 mb-6 border border-emerald-200/20 dark:border-emerald-500/30"
+                      >
+                        {currentStep.messages.map((msg, idx) => (
+                          <motion.div
+                            key={`${currentStep.number}-${msg.text}-${idx}`}
+                            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ delay: 0.2 + idx * 0.1 }}
+                            className={`flex ${msg.from === 'client' ? 'justify-end' : 'justify-start'} mb-3`}
+                          >
+                            <div className={`
+                              max-w-md px-5 py-4 rounded-2xl shadow-md
+                              ${msg.from === 'client' 
+                                ? 'bg-cyan-500 text-white rounded-br-none' 
+                                : 'bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 rounded-bl-none'
+                              }
+                            `}>
+                              <div className="flex items-start gap-3">
+                                <span className="text-3xl">{msg.from === 'client' ? '👤' : '🤖'}</span>
+                                <div>
+                                  <p className="leading-relaxed">{msg.text}</p>
+                                  <span className={`text-xs mt-2 block ${msg.from === 'client' ? 'text-cyan-100' : 'text-slate-500 dark:text-slate-400'}`}>
+                                    {msg.time}
+                                  </span>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  )}
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
                   {/* Details List */}
-                  {currentStep.details && (
-                    <motion.div 
-                      className="space-y-4"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.3 }}
-                    >
-                      {currentStep.details.map((detail, idx) => (
-                        <motion.div 
-                          key={idx} 
-                          className="flex items-start gap-4 p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.4 + idx * 0.1 }}
-                        >
-                          <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${currentStep.color} mt-2 flex-shrink-0`} />
-                          <span className="text-slate-800 dark:text-slate-200 leading-relaxed font-medium">{detail}</span>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-                  )}
+                  <AnimatePresence mode="wait">
+                    {currentStep.details && (
+                      <motion.div 
+                        key={`details-${currentStep.number}`}
+                        className="space-y-4"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -30 }}
+                        transition={{ duration: 0.35, ease: "easeInOut" }}
+                      >
+                        {currentStep.details.map((detail, idx) => (
+                          <motion.div 
+                            key={`${currentStep.number}-${detail}-${idx}`} 
+                            className="flex items-start gap-4 p-4 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
+                            initial={{ opacity: 0, x: -25 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 25 }}
+                            transition={{ delay: 0.2 + idx * 0.1 }}
+                          >
+                            <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${currentStep.color} mt-2 flex-shrink-0`} />
+                            <span className="text-slate-800 dark:text-slate-200 leading-relaxed font-medium">{detail}</span>
+                          </motion.div>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </Card>
             </motion.div>

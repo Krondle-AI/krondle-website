@@ -13,6 +13,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ChatWidget } from "./components/chat/ChatWidget";
 import { ChatUIHandle } from "./components/chat/ChatUI";
+import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
   const chatRef = useRef<ChatUIHandle>(null);
@@ -38,6 +39,7 @@ function App() {
   return (
     <ThemeProvider defaultTheme="light">
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-screen">
           <Header openChat={openChat} />
           <main>

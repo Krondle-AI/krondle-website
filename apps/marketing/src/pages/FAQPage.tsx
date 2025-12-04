@@ -152,7 +152,7 @@ export default function FAQPage() {
             <FAQHero />
             <SectionDivider variant="gradient" padding="compact" />
 
-            <section className="pt-20 pb-10 px-4 bg-white dark:bg-slate-900">
+            <section className="pt-5 pb-10 px-4 bg-white dark:bg-slate-900">
                 <div className="max-w-5xl mx-auto">
 
                     <FAQCategory

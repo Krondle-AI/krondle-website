@@ -1,50 +1,47 @@
 // apps/marketing/src/components/Hero.tsx
+"use client";
+
 import { Button } from "@krondle/common/components/ui/button";
-import { ArrowRight, Play, Sparkles, Calendar, TrendingUp, Clock, Zap, Users, DollarSign } from "lucide-react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
-import { useRef, useEffect } from "react";
+import {
+  Play,
+  Sparkles,
+  Clock,
+  Zap,
+  Users,
+  DollarSign,
+} from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export function Hero() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
+  // Scroll-parallax para o iPhone
+  const phoneRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress: phoneScroll } = useScroll({
+    target: phoneRef,
+    offset: ["start end", "end start"],
   });
 
-  // Parallax com mouse
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  
-  const smoothMouseX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const smoothMouseY = useSpring(mouseY, { stiffness: 50, damping: 20 });
+  const phoneX = useTransform(phoneScroll, [0, 1], [-200, 200]);
+  const phoneRotateY = useTransform(phoneScroll, [0, 0.5, 1], [-30, 0, 30]);
+  const phoneRotateX = useTransform(phoneScroll, [0, 0.5, 1], [20, 0, -20]);
+  const phoneRotateZ = useTransform(phoneScroll, [0, 0.5, 1], [-12, 0, -12]);
+  const phoneScale = useTransform(phoneScroll, [0, 0.5, 1], [0.8, 1.05, 0.8]);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY, currentTarget } = e;
-      const target = currentTarget as Window;
-      const centerX = target.innerWidth / 2;
-      const centerY = target.innerHeight / 2;
-      
-      mouseX.set((clientX - centerX) / 50);
-      mouseY.set((clientY - centerY) / 50);
-    };
+  // Scroll-parallax para o desktop (espelho do iPhone)
+  const desktopRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress: desktopScroll } = useScroll({
+    target: desktopRef,
+    offset: ["start end", "end start"],
+  });
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Mobile: COMEÇA RETO (0deg) → RODA sentido ANTI-HORÁRIO (positivo)
-  const mobileRotateY = useTransform(scrollYProgress, [0, 0.3], [25, 0]);
-  const mobileRotateX = useTransform(scrollYProgress, [0, 0.3], [12, 0]);
-  const mobileScale = useTransform(scrollYProgress, [0, 0.2], [0.95, 1]);
-
-  // Desktop: COMEÇA RETO (0deg) → RODA sentido ANTI-HORÁRIO (negativo)
-  const desktopRotateY = useTransform(scrollYProgress, [0, 0.3], [-25, -0]);
-  const desktopRotateX = useTransform(scrollYProgress, [0, 0.3], [12, 0]);
-  const desktopScale = useTransform(scrollYProgress, [0, 0.2], [0.95, 1]);
+  const desktopX = useTransform(desktopScroll, [0, 1], [150, -150]);
+  const desktopRotateY = useTransform(desktopScroll, [0, 0.5, 1], [20, 0, -20]);
+  const desktopRotateX = useTransform(desktopScroll, [0, 0.5, 1], [-12, 0, 12]);
+  const desktopRotateZ = useTransform(desktopScroll, [0, 0.5, 1], [12, 0, 12]);
+  const desktopScale = useTransform(desktopScroll, [0, 0.5, 1], [0.9, 1.03, 0.9]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-900">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient blobs */}
@@ -86,7 +83,7 @@ export function Hero() {
           }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-cyan-400/30 via-blue-400/30 to-indigo-400/30 dark:from-cyan-500/15 dark:via-blue-500/15 dark:to-indigo-500/15 rounded-full blur-3xl"
         />
-        
+
         {/* Floor reflection effect */}
         <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-slate-100/50 to-transparent dark:from-slate-950/50 blur-2xl" />
       </div>
@@ -94,20 +91,16 @@ export function Hero() {
       {/* Main Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:py-32">
         <div className="text-center mb-12">
-          
           {/* Small badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-cyan-200 dark:border-slate-800 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-slate-900 dark:to-slate-900 px-4 py-1.5 text-xs font-medium text-cyan-700 dark:text-slate-400 mb-6"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-cyan-500"></span>
-            </span>
-            Automação inteligente para pequenos negócios
-          </motion.div>
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className="inline-flex items-center gap-2 rounded-full border-2 border-cyan-200/80 dark:border-cyan-800 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-950/50 dark:to-blue-950/50 px-5 py-2 text-[11px] font-black tracking-[0.25em] uppercase text-cyan-700 dark:text-cyan-300 backdrop-blur shadow-lg"
+        >
+          <Sparkles className="w-3.5 h-3.5" />
+          PROJETO ISCTE 2025 · FEITO PARA PMEs
+        </motion.div>
 
           {/* Giant headline */}
           <motion.h1
@@ -135,7 +128,7 @@ export function Hero() {
             Disponível 24/7, sem intervenção humana.
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTA ÚNICO */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -151,32 +144,34 @@ export function Hero() {
               Ver vídeo (2 min)
             </Button>
           </motion.div>
-
         </div>
 
         {/* DUAL MOCKUP: SUPER 3D E DRAMÁTICO */}
-        <div className="relative w-full max-w-[1700px] mx-auto" style={{ perspective: "2000px" }}>
+        <div
+          className="relative w-full max-w-[1700px] mx-auto"
+          style={{ perspective: "2000px" }}
+        >
           <div className="flex items-center justify-center gap-12 lg:gap-24 px-4">
-          
             {/* Mobile WhatsApp Mockup - ULTRA 3D */}
             <motion.div
-              initial={{ opacity: 0, x: -100, rotateY: 0 }}
-              animate={{ opacity: 1, x: 0, rotateY: 0 }}
-              transition={{ duration: 1, delay: 0.5, type: "spring" }}
+              ref={phoneRef}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
               className="relative flex-shrink-0"
-              style={{ 
-                rotateY: mobileRotateY,
-                rotateX: mobileRotateX,
-                scale: mobileScale,
-                x: smoothMouseX,
-                y: smoothMouseY,
+              style={{
+                x: phoneX,
+                rotateY: phoneRotateY,
+                rotateX: phoneRotateX,
+                rotateZ: phoneRotateZ,
+                scale: phoneScale,
                 transformStyle: "preserve-3d",
               }}
             >
               {/* Glow effect behind */}
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-[4rem] blur-3xl opacity-30 scale-110 -z-10" />
-              
-              <motion.div 
+
+              <motion.div
                 className="relative bg-slate-900 dark:bg-slate-950 rounded-[4rem] p-[12px] border-[4px] border-slate-800 dark:border-slate-900 w-[360px]"
                 style={{
                   transformStyle: "preserve-3d",
@@ -184,25 +179,22 @@ export function Hero() {
                     60px 60px 120px rgba(0, 0, 0, 0.4),
                     -20px 20px 60px rgba(0, 0, 0, 0.25),
                     inset 0 0 0 1px rgba(255, 255, 255, 0.1)
-                  `
+                  `,
                 }}
               >
                 {/* Phone notch - Dynamic Island com câmaras realistas */}
                 <div className="absolute top-1 left-1/2 -translate-x-1/2 w-[100px] h-[26px] bg-slate-900 dark:bg-slate-950 rounded-[20px] z-10 flex items-center justify-center px-3">
-                  {/* Câmara frontal + Face ID */}
                   <div className="flex items-center gap-2">
-                    {/* Câmara */}
                     <div className="w-[7px] h-[7px] rounded-full bg-slate-800 dark:bg-slate-900 ring-1 ring-slate-700/50" />
-                    {/* Face ID / Sensor */}
                     <div className="w-[9px] h-[9px] rounded-full bg-gradient-to-br from-slate-700 to-slate-900 dark:from-slate-800 dark:to-black" />
                   </div>
                 </div>
-                
+
                 {/* Screen with inner glow */}
-                <div 
+                <div
                   className="relative bg-white dark:bg-slate-950 rounded-[3.5rem] overflow-hidden h-[720px] flex flex-col"
                   style={{
-                    boxShadow: "inset 0 0 60px rgba(0, 0, 0, 0.1)"
+                    boxShadow: "inset 0 0 60px rgba(0, 0, 0, 0.1)",
                   }}
                 >
                   {/* WhatsApp Header */}
@@ -211,7 +203,9 @@ export function Hero() {
                       <Sparkles className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1">
-                      <div className="text-white font-semibold text-[15px]">Barbearia Santos</div>
+                      <div className="text-white font-semibold text-[15px]">
+                        Barbearia Santos
+                      </div>
                       <div className="text-green-200 text-xs flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-300 animate-pulse" />
                         online
@@ -228,7 +222,9 @@ export function Hero() {
                       className="flex justify-start"
                     >
                       <div className="bg-white dark:bg-slate-800 rounded-xl rounded-tl-sm px-3.5 py-2.5 max-w-[75%] shadow-lg">
-                        <p className="text-[13px] text-slate-900 dark:text-slate-100">Boa tarde! 👋</p>
+                        <p className="text-[13px] text-slate-900 dark:text-slate-100">
+                          Boa tarde! 👋
+                        </p>
                       </div>
                     </motion.div>
 
@@ -239,7 +235,9 @@ export function Hero() {
                       className="flex justify-end"
                     >
                       <div className="bg-[#DCF8C6] dark:bg-cyan-900 rounded-xl rounded-tr-sm px-3.5 py-2.5 max-w-[75%] shadow-lg">
-                        <p className="text-[13px] text-slate-900 dark:text-white font-medium">Quero marcar corte!</p>
+                        <p className="text-[13px] text-slate-900 dark:text-white font-medium">
+                          Quero marcar corte!
+                        </p>
                       </div>
                     </motion.div>
 
@@ -250,7 +248,9 @@ export function Hero() {
                       className="flex justify-start"
                     >
                       <div className="bg-white dark:bg-slate-800 rounded-xl rounded-tl-sm px-3.5 py-2.5 max-w-[80%] shadow-lg">
-                        <p className="text-[13px] text-slate-900 dark:text-slate-100">Tenho 15h e 16h30. Qual prefere? 😊</p>
+                        <p className="text-[13px] text-slate-900 dark:text-slate-100">
+                          Tenho 15h e 16h30. Qual prefere? 😊
+                        </p>
                       </div>
                     </motion.div>
 
@@ -262,21 +262,18 @@ export function Hero() {
                     >
                       <div className="bg-[#DCF8C6] dark:bg-cyan-900 rounded-xl rounded-tr-sm px-3.5 py-2.5 shadow-lg">
                         <div className="flex gap-1.5">
-                          <motion.div
-                            animate={{ scale: [1, 1.3, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
-                            className="w-2 h-2 rounded-full bg-slate-500 dark:bg-slate-600"
-                          />
-                          <motion.div
-                            animate={{ scale: [1, 1.3, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-                            className="w-2 h-2 rounded-full bg-slate-500 dark:bg-slate-600"
-                          />
-                          <motion.div
-                            animate={{ scale: [1, 1.3, 1] }}
-                            transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-                            className="w-2 h-2 rounded-full bg-slate-500 dark:bg-slate-600"
-                          />
+                          {[0, 0.2, 0.4].map((d, i) => (
+                            <motion.div
+                              key={i}
+                              animate={{ scale: [1, 1.3, 1] }}
+                              transition={{
+                                duration: 0.6,
+                                repeat: Infinity,
+                                delay: d,
+                              }}
+                              className="w-2 h-2 rounded-full bg-slate-500 dark:bg-slate-600"
+                            />
+                          ))}
                         </div>
                       </div>
                     </motion.div>
@@ -290,16 +287,36 @@ export function Hero() {
                     className="bg-[#F0F0F0] dark:bg-slate-800 px-3 py-3 flex items-center gap-2.5 flex-shrink-0 border-t border-slate-200 dark:border-slate-700"
                   >
                     <button className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                      <svg className="w-5 h-5 text-slate-600 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg
+                        className="w-5 h-5 text-slate-600 dark:text-slate-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
                       </svg>
                     </button>
                     <div className="flex-1 bg-white dark:bg-slate-900 rounded-full px-4 py-2.5 text-[13px] text-slate-500 dark:text-slate-400 shadow-sm">
                       Escrever mensagem...
                     </div>
                     <button className="p-2.5 rounded-full bg-[#128C7E] hover:bg-[#075E54] transition-all shadow-lg hover:shadow-xl">
-                      <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      <svg
+                        className="w-5 h-5 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"
+                        />
                       </svg>
                     </button>
                   </motion.div>
@@ -312,23 +329,24 @@ export function Hero() {
 
             {/* Desktop Mockup - ULTRA 3D */}
             <motion.div
-              initial={{ opacity: 0, x: 100, rotateY: 0 }}
-              animate={{ opacity: 1, x: 0, rotateY: 0 }}
-              transition={{ duration: 1, delay: 0.7, type: "spring" }}
+              ref={desktopRef}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
               className="relative flex-shrink-0"
-              style={{ 
+              style={{
+                x: desktopX,
                 rotateY: desktopRotateY,
                 rotateX: desktopRotateX,
+                rotateZ: desktopRotateZ,
                 scale: desktopScale,
-                x: smoothMouseX,
-                y: smoothMouseY,
                 transformStyle: "preserve-3d",
               }}
             >
               {/* Glow effect behind */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-3xl blur-3xl opacity-25 scale-105 -z-10" />
-              
-              <div 
+
+              <div
                 className="relative rounded-3xl overflow-hidden border-[3px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 w-[800px]"
                 style={{
                   transformStyle: "preserve-3d",
@@ -336,7 +354,7 @@ export function Hero() {
                     60px 60px 120px rgba(0, 0, 0, 0.35),
                     -25px 25px 60px rgba(0, 0, 0, 0.2),
                     inset 0 0 0 1px rgba(255, 255, 255, 0.1)
-                  `
+                  `,
                 }}
               >
                 {/* Browser header */}
@@ -348,10 +366,22 @@ export function Hero() {
                   </div>
                   <div className="flex-1 flex justify-center">
                     <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                      <svg className="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      <svg
+                        className="w-4 h-4 text-slate-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        />
                       </svg>
-                      <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">app.krondle.com</span>
+                      <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+                        app.krondle.com
+                      </span>
                     </div>
                   </div>
                   <div className="w-20" />
@@ -359,7 +389,6 @@ export function Hero() {
 
                 {/* Dashboard ANALYTICS */}
                 <div className="p-8 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-950">
-                  
                   {/* TOP STATS */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -372,29 +401,41 @@ export function Hero() {
                         <div className="p-2 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg">
                           <Clock className="h-4 w-4 text-white" />
                         </div>
-                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">Setup</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                          Setup
+                        </span>
                       </div>
-                      <div className="text-3xl font-bold text-slate-900 dark:text-white">5 min</div>
+                      <div className="text-3xl font-bold text-slate-900 dark:text-white">
+                        5 min
+                      </div>
                     </div>
-                    
+
                     <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-lg">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 shadow-lg">
                           <Zap className="h-4 w-4 text-white" />
                         </div>
-                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">Disponível</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                          Disponível
+                        </span>
                       </div>
-                      <div className="text-3xl font-bold text-slate-900 dark:text-white">24/7</div>
+                      <div className="text-3xl font-bold text-slate-900 dark:text-white">
+                        24/7
+                      </div>
                     </div>
-                    
+
                     <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-lg">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg">
                           <Sparkles className="h-4 w-4 text-white" />
                         </div>
-                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">Automático</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                          Automático
+                        </span>
                       </div>
-                      <div className="text-3xl font-bold text-slate-900 dark:text-white">100%</div>
+                      <div className="text-3xl font-bold text-slate-900 dark:text-white">
+                        100%
+                      </div>
                     </div>
                   </motion.div>
 
@@ -407,12 +448,18 @@ export function Hero() {
                   >
                     <div className="flex items-center justify-between mb-6">
                       <div>
-                        <h3 className="text-base font-bold text-slate-900 dark:text-white">Marcações este mês</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">+32% vs mês anterior</p>
+                        <h3 className="text-base font-bold text-slate-900 dark:text-white">
+                          Marcações este mês
+                        </h3>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                          +32% vs mês anterior
+                        </p>
                       </div>
-                      <div className="text-3xl font-bold text-slate-900 dark:text-white">247</div>
+                      <div className="text-3xl font-bold text-slate-900 dark:text-white">
+                        247
+                      </div>
                     </div>
-                    
+
                     {/* Bar chart */}
                     <div className="flex items-end justify-between h-32 gap-3">
                       {[65, 45, 78, 56, 89, 72, 95].map((height, i) => (
@@ -420,15 +467,26 @@ export function Hero() {
                           key={i}
                           initial={{ height: 0 }}
                           animate={{ height: `${height}%` }}
-                          transition={{ duration: 0.6, delay: 1.4 + i * 0.1, type: "spring" }}
+                          transition={{
+                            duration: 0.6,
+                            delay: 1.4 + i * 0.1,
+                            type: "spring",
+                          }}
                           className="flex-1 bg-gradient-to-t from-cyan-500 to-blue-600 dark:from-cyan-600 dark:to-blue-700 rounded-t-lg shadow-lg"
                         />
                       ))}
                     </div>
                     <div className="flex justify-between mt-3">
-                      {['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'].map((day) => (
-                        <span key={day} className="text-sm text-slate-500 dark:text-slate-400 font-medium">{day}</span>
-                      ))}
+                      {["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"].map(
+                        (day) => (
+                          <span
+                            key={day}
+                            className="text-sm text-slate-500 dark:text-slate-400 font-medium"
+                          >
+                            {day}
+                          </span>
+                        )
+                      )}
                     </div>
                   </motion.div>
 
@@ -444,10 +502,16 @@ export function Hero() {
                         <div className="p-2 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 shadow-lg">
                           <Users className="h-4 w-4 text-white" />
                         </div>
-                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">Clientes ativos</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                          Clientes ativos
+                        </span>
                       </div>
-                      <div className="text-2xl font-bold text-slate-900 dark:text-white">1,234</div>
-                      <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium">+12% este mês</div>
+                      <div className="text-2xl font-bold text-slate-900 dark:text-white">
+                        1,234
+                      </div>
+                      <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium">
+                        +12% este mês
+                      </div>
                     </div>
 
                     <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-lg">
@@ -455,10 +519,16 @@ export function Hero() {
                         <div className="p-2 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 shadow-lg">
                           <DollarSign className="h-4 w-4 text-white" />
                         </div>
-                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">Receita</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">
+                          Receita
+                        </span>
                       </div>
-                      <div className="text-2xl font-bold text-slate-900 dark:text-white">3.458€</div>
-                      <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium">+18% este mês</div>
+                      <div className="text-2xl font-bold text-slate-900 dark:text-white">
+                        3.458€
+                      </div>
+                      <div className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium">
+                        +18% este mês
+                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -477,7 +547,6 @@ export function Hero() {
                 🤖 100% Automático
               </motion.div>
             </motion.div>
-
           </div>
         </div>
       </div>
