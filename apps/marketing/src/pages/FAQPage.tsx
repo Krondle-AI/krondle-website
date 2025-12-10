@@ -19,7 +19,7 @@ export default function FAQPage() {
     const generalFAQs = [
         {
             question: "O que é o Krondle?",
-            answer: "O Krondle é uma plataforma inteligente de agendamento automático que utiliza Inteligência Artificial para gerir marcações através do WhatsApp, Instagram e Email. Elimina a necessidade de responder manualmente a pedidos de marcação, funcionando 24/7 de forma completamente automática."
+            answer: "O Krondle é uma plataforma inteligente de agendamento automático que utiliza Inteligência Artificial para gerir marcações através do WhatsApp e Instagram. Elimina a necessidade de responder manualmente a pedidos de marcação, funcionando 24/7 de forma completamente automática."
         },
         {
             question: "Como funciona a Inteligência Artificial do Krondle?",
@@ -27,15 +27,15 @@ export default function FAQPage() {
         },
         {
             question: "Que canais de comunicação são suportados?",
-            answer: "Atualmente o Krondle funciona com:\n• WhatsApp (via API oficial do Meta)\n• Instagram Direct Messages\n• Email (Gmail)\n\nEstamos a trabalhar em chamadas telefónicas em tempo real para o futuro!"
+            answer: "Atualmente o Krondle funciona com:\n• WhatsApp Business\n• Instagram Direct Messages\n\nEstamos a trabalhar em chamadas telefónicas em tempo real para o futuro!"
         },
         {
-            question: "É difícil de configurar? -- MUDAR",
-            answer: "Não! O Krondle foi desenhado para ser extremamente simples. A configuração inicial demora apenas 5 minutos:\n1. Criar conta\n2. Conectar WhatsApp/Instagram\n3. Adicionar serviços e preços\n4. Definir horários\n\nPronto! O sistema começa a funcionar imediatamente. -- RESPOSTA CHAT"
+            question: "É difícil de configurar?",
+            answer: "Não! O Krondle foi desenhado para ser extremamente simples. A configuração inicial demora sensivelmente 1 hora:\n1. Criar conta\n2. Conectar WhatsApp/Instagram\n3. Adicionar serviços e preços\n4. Definir horários\n\nPronto! O sistema começa a funcionar imediatamente."
         },
         {
-            question: "O Krondle funciona para o meu tipo de negócio? -- O Q ACHAM?",
-            answer: "O Krondle foi desenvolvido para pequenas e médias empresas que prestam serviços com marcação, incluindo:\n• Barbearias e cabeleireiros\n• Clínicas e consultórios\n• Centros de estética\n• Oficinas e reparações\n• Personal trainers\n• Qualquer negócio que trabalhe por marcação!"
+            question: "O Krondle funciona para o meu tipo de negócio?",
+            answer: "O Krondle foi desenvolvido para pequenas e médias empresas que prestam serviços com marcação, incluindo:\n• Barbearias e cabeleireiros\n• Clínicas e consultórios\n• Centros de estética\n• Oficinas e reparações\n• Personal trainers\n• Qualquer negócio que trabalhe por marcação via WhatsApp Business e Instagram!"
         },
         {
             question: "Preciso de conhecimentos técnicos?",
@@ -85,10 +85,10 @@ export default function FAQPage() {
             question: "Onde são armazenados os dados?",
             answer: "Todos os dados são armazenados em servidores seguros localizados na Europa (Supabase), garantindo conformidade com as leis europeias de proteção de dados. Os dados nunca saem da União Europeia."
         },
-        {
-            question: "Quem tem acesso aos dados dos meus clientes? -- SEMPRE VAMOS FAZER ISTO?",
-            answer: "Apenas você e os utilizadores que autorizar na sua conta têm acesso aos dados dos clientes. A nossa equipa técnica apenas acede aos dados em situações de suporte técnico, com o seu consentimento explícito, e sempre de forma encriptada."
-        },
+        //{
+            //question: "Quem tem acesso aos dados dos meus clientes? -- SEMPRE VAMOS FAZER ISTO?",
+            //answer: "Apenas você e os utilizadores que autorizar na sua conta têm acesso aos dados dos clientes. A nossa equipa técnica apenas acede aos dados em situações de suporte técnico, com o seu consentimento explícito, e sempre de forma encriptada."
+        //},
         {
             question: "Posso exportar ou eliminar os meus dados?",
             answer: "Sim! Pode exportar todos os seus dados (clientes, marcações, conversas) a qualquer momento em formato CSV ou JSON. Se cancelar a conta, todos os dados são permanentemente eliminados após 30 dias, conforme o RGPD."
@@ -99,10 +99,10 @@ export default function FAQPage() {
     const featuresFAQs = [
         {
             question: "Como funciona a marcação automática?",
-            answer: "Quando um cliente envia uma mensagem (ex: 'Quero cortar cabelo terça à tarde'), a IA:\n1. Interpreta o pedido\n2. Identifica o serviço pretendido\n3. Consulta disponibilidade no calendário\n4. Propõe 2-3 horários disponíveis\n5. Cliente confirma\n6. Marcação registada automaticamente\n7. Lembretes enviados antes da hora\n\nTudo em 2-3 segundos!"
+            answer: "Quando um cliente envia uma mensagem (ex: 'Quero cortar cabelo terça à tarde'), a IA:\n1. Interpreta o pedido\n2. Identifica o serviço pretendido\n3. Consulta disponibilidade no calendário\n4. Propõe 2-3 horários disponíveis\n5. Cliente confirma\n6. Marcação registada automaticamente\n7.\n\nTudo em 2-3 segundos!"
         },
         {
-            question: "Posso personalizar as respostas da IA? -- CONFIRMAR",
+            question: "Posso personalizar as respostas da IA?",
             answer: "Sim! Pode configurar:\n• Tom de voz (formal, casual, amigável)\n• Mensagens de boas-vindas\n• Mensagens de confirmação\n• Lembretes personalizados\n• Respostas automáticas para situações específicas\n\nA IA mantém sempre o tom que definir."
         },
         {
@@ -111,22 +111,22 @@ export default function FAQPage() {
         },
         {
             question: "Que analytics e relatórios estão incluídos?",
-            answer: "O dashboard do Krondle mostra:\n• Número de marcações (diário/semanal/mensal)\n• Taxa de ocupação\n• Receita gerada\n• Clientes mais frequentes\n• Serviços mais populares\n• Horários de pico\n• Taxa de no-shows\n• Tempo médio de resposta\n\nPlanos Pro e Premium têm relatórios avançados exportáveis. -- YES OR NO"
+            answer: "O dashboard do Krondle mostra:\n• Número de marcações (diário/semanal/mensal)\n• Taxa de ocupação\n• Receita gerada\n• Clientes mais frequentes\n• Serviços mais populares\n• Horários de pico\n• Taxa de no-shows\n• Tempo médio de resposta\n\nPlanos Pro e Premium têm relatórios avançados exportáveis."
         },
         {
             question: "Posso adicionar ou remover trabalhadores?",
             answer: "Sim! No painel de gestão pode:\n• Adicionar novos trabalhadores\n• Definir horários individuais\n• Atribuir serviços específicos\n• Gerir permissões\n• Remover trabalhadores\n\nNos planos Basic (1), Pro (5) e Premium (ilimitado)."
         },
-        {
-            question: "O sistema envia lembretes automáticos? -- SIM OU NÂO",
-            answer: "Sim! O Krondle envia automaticamente:\n• Confirmação imediata após marcação\n• Lembrete 24h antes\n• Lembrete 1h antes\n• Possibilidade de reagendar por mensagem\n\nPode configurar quando e como os lembretes são enviados."
-        }
+        //{
+            //question: "O sistema envia lembretes automáticos? -- SIM OU NÂO",
+            //answer: "Sim! O Krondle envia automaticamente:\n• Confirmação imediata após marcação\n• Lembrete 24h antes\n• Lembrete 1h antes\n• Possibilidade de reagendar por mensagem\n\nPode configurar quando e como os lembretes são enviados."
+        //}
     ]
 
     // 5️⃣ SUPORTE & AJUDA (BLUE/INDIGO)
     const supportFAQs = [
         {
-            question: "Que tipo de suporte está incluído? -- DECIDIR",
+            question: "Que tipo de suporte está incluído?",
             answer: "Todos os planos incluem:\n• Suporte por email\n• Base de conhecimento completa\n• Tutoriais em vídeo\n• Documentação detalhada\n\nPlanos Pro: Suporte prioritário (resposta em 24h)\nPlano Premium: Gestor de conta dedicado + suporte 24/7"
         },
         {
@@ -138,13 +138,13 @@ export default function FAQPage() {
             answer: "Pode contactar-nos através de:\n• Email: krondleai@gmail.com\n• Chat na plataforma (botão no canto inferior direito)"
         },
         {
-            question: "Existe documentação e tutoriais? -- CONFIRMAR",
-            answer: "Sim! Disponibilizamos:\n• Guia de início rápido\n• Documentação completa online\n• Tutoriais em vídeo passo-a-passo\n• FAQs técnicas\n• Casos de uso reais\n• Webinars mensais gratuitos\n\nTudo acessível na sua conta."
+            question: "Existe documentação e tutoriais?",
+            answer: "Sim! Disponibilizamos:\n• Guia de início rápido\n• Tutoriais em vídeo passo-a-passo\n• Casos de uso reais\n\nTudo acessível na sua conta."
         },
-        {
-            question: "Oferecem formação para a equipa? -- CONFIRMAR",
-            answer: "Sim! O plano Premium inclui:\n• Sessão de onboarding personalizada (1h)\n• Formação para toda a equipa\n• Manuais personalizados\n• Suporte contínuo\n\nPlanos Basic e Pro têm acesso a webinars e tutoriais."
-        }
+        //{
+            //question: "Oferecem formação para a equipa? -- CONFIRMAR",
+            //answer: "Sim! O plano Premium inclui:\n• Sessão de onboarding personalizada (1h)\n• Formação para toda a equipa\n• Manuais personalizados\n• Suporte contínuo\n\nPlanos Basic e Pro têm acesso a webinars e tutoriais."
+        //}
     ]
 
     return (
