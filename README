@@ -1,6 +1,6 @@
 # 🧠 Krondle Frontend — Guia de Trabalho da Equipa
 
-Este guia documenta como a equipa de desenvolvimento frontend da **Krondle-AI** colabora no repositório [`krondle-frontend`](https://github.com/Krondle-AI/krondle-frontend).  
+Este guia documenta como a equipa de desenvolvimento frontend do Krondle-AI que colabora no repositório [`krondle-frontend`](https://github.com/Krondle-AI/krondle-frontend).  
 Inclui o fluxo de trabalho no VS Code, GitHub e estrutura do monorepo.
 
 ---
@@ -157,20 +157,6 @@ pnpm build            # Compila para produção
 - Confirma que estás na branch correta antes de trabalhar.
 - Atualiza o repositório sempre com `git pull origin main`.
 - Evita duplicar componentes. Se algo for útil para ambos (dashboard + marketing), move para `common`.
-
----
-
-## ✅ Check Final Antes de Abrir PR
-
-- [ ] Código testado localmente?
-- [ ] Lint/format sem erros?
-- [ ] Imports de componentes de `@krondle/common` estão corretos?
-- [ ] Pull Request bem nomeado, com descrição clara?
-- [ ] Branch não tem commits irrelevantes?
-
----
-
-📫 Qualquer dúvida → cria issue ou fala com os responsáveis de frontend no Discord/Grupo WhatsApp.
 
 ---
 
