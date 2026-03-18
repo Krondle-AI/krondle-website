@@ -1,5 +1,5 @@
 {
   "installCommand": "pnpm install",
-  "buildCommand": "pnpm --filter @krondle/marketing build",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "dist"
 }
