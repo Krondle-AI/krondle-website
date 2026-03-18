@@ -24,8 +24,9 @@
     "class-variance-authority": "^0.7.1"
   },
   "pnpm": {
-    "overrides": {
-      "vite": "^5.4.21"
-    }
-  }
+  "overrides": {
+    "vite": "^5.4.21"
+  },
+  "onlyBuiltDependencies": ["@swc/core", "esbuild"]
+}
 }
