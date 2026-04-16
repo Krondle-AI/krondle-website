@@ -8,6 +8,8 @@ import PricingPage from "./pages/PricingPage";
 import HowItWorksPage from "./pages/HowItWorksPage";
 import FAQPage from "./pages/FAQPage";
 import CulturePage from "./pages/CulturePage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import NotFound from "./pages/NotFound";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -50,6 +52,8 @@ function App() {
               <Route path="/como-funciona" element={<HowItWorksPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/culture" element={<CulturePage />} />
+              <Route path="/termos" element={<TermsPage />} />
+              <Route path="/privacidade" element={<PrivacyPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
