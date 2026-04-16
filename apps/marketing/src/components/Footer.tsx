@@ -171,7 +171,7 @@ export function Footer() {
                   href="/termos" 
                   className="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
-                  Termos
+                  Termos e Condições
                 </a>
               </li>
               <li>
@@ -179,7 +179,7 @@ export function Footer() {
                   href="/privacidade" 
                   className="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
-                  Privacidade
+                  Políticas de privacidade
                 </a>
               </li>
               <li>
