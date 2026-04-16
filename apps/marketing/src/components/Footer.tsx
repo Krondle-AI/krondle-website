@@ -190,7 +190,7 @@ export function Footer() {
                   className="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
                   Dados e cookies
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
