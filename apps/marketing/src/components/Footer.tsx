@@ -2,6 +2,8 @@
 "use client";
 
 import { Mail, Phone, ArrowRight, BookOpen, Users, FileText, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 export function Footer() {
   /**
@@ -167,24 +169,24 @@ export function Footer() {
             </div>
             <ul className="space-y-2">
               <li>
-                <a 
-                  href="/termos" 
+                <Link
+                  to="/termos"
                   className="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
                   Termos e Condições
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="/privacidade" 
+                <Link
+                  to="/privacidade"
                   className="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
                   Políticas de privacidade
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="/privacidade" 
+                <Link
+                  to="/privacidade"
                   className="text-sm text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                 >
                   Dados e cookies
